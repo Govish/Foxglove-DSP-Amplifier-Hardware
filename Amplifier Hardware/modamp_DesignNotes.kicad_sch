@@ -1,0 +1,74 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 45ef7962-b77b-4fb6-8111-320b8afa5ce0)
+
+  (paper "A4")
+
+  (title_block
+    (title "Digital Audio Effects Processor")
+    (date "2023-11-26")
+    (rev "A")
+    (company "Ishaan Govindarajan")
+  )
+
+  (lib_symbols
+  )
+
+
+  (text_box "\n\n\nA modelling amplifier has the benefit of offloading a good deal of hardware signal chain elements for those performed in firmware. As such, the only real thing that needs to happen on this amplifier is biasing, pre-amplification, filtering (anti-aliasing and reconstruction), volume control, and \"de-biasing\". You'll see all of these functions replicated in the signal path on the top-level schematic.\n\nIn addition to these, I've found a general-purpose line-level input useful when jamming/practicing by myself. This allows you to play along with backing tracks or songs from a PC or phone. I've included a line-level input in this design that gets mixed (summed) with the effect output to allow this functionality too.\n\nAside from the forward signal path, I've included four expression pedal inputs (on/off or analog) to modulate effects. These are interfaced with a TRS jack to an external stomp switch or treadle potentiometer. Hardware/firmware implementation of this is relatively flexible, so have some degrees of freedom with overall implementation.\n\nFive rotary encoders and RGB LEDs, and a small screen form the user interface. I'll go into the details of the implementation in the \"User Interface Ideas\" section. Four LEDs also visualize the input signal level to help set an appropriate pre-amp level. "
+    (at 100.33 49.53 0) (size 69.85 142.24)
+    (stroke (width 0) (type default) (color 175 200 175 1))
+    (fill (type color) (color 223 255 223 1))
+    (effects (font (size 2 2) (color 0 72 0 1)) (justify left top))
+    (uuid 1c8d63bd-bf18-4ac8-b774-b7d11b2d53e8)
+  )
+  (text_box "\n\n\nThe primary user input device to the effects processor will be the five clickable rotary encoders. At the top level, four of the encoders (and expression pedals) will provide \"quick edits\" to four possible effects channel, and a fifth \"main\" encoder to cycle through menu options. \n\nWhen one of the \"effects encoders\" are clicked, it will allow editing of five different parameters of the selected effect. A clicked encoder will bring the UI back to the main menu, and the selected effect will corresond to the \"quick edit\" paramter available at the top level.\n\nThe general idea regarding the user interface has evolved while drafting this schematic. This is why schematic is organized slightly differently than the UI. "
+    (at 176.53 17.78 0) (size 101.6 60.96)
+    (stroke (width 0) (type default) (color 175 175 200 1))
+    (fill (type color) (color 223 223 255 1))
+    (effects (font (size 2 2) (color 0 0 72 1)) (justify left top))
+    (uuid 5bd20ce3-2b79-4f6b-a5d3-9f3c4105652c)
+  )
+  (text_box "\n\n\nHi! I'll try to capture some details about certain design decisions in this section of the schematic. If I miss anything, let me know and I'll update this section!"
+    (at 100.33 17.78 0) (size 69.85 25.4)
+    (stroke (width 0) (type default) (color 132 0 0 1))
+    (fill (type color) (color 255 255 194 1))
+    (effects (font (size 2 2) (thickness 0.4) bold (color 132 0 0 1)) (justify left top))
+    (uuid bbb49189-1763-4b8c-8b9c-76e9de9e61ed)
+  )
+  (text_box "\n\n\nI designed this amplifier to help teach the basics of digital signal processing. As a result, the design aims to be easy to assemble (read: through-hole components) and primarily constructed out of cheap, readily-available components.\n\nThe main active analog component used in the design was an MCP6004 quad op-amp. Generally, any kinda rail-to-rail input/output, >600kHz GBP, and <0.1% THD+N parts should do the trick here. Suitable replacements include the MCP6294, LMC6484, TLV2464, and TLV2474 among other more expensive options. \n\nThe Teensy 4.1 was chosen as the main DSP MCU due to its pretty decent computational power, relatively low cost, great community support, ease of firmware implementation, and use in other classes taught at MIT. \n\nI'm intending for a generic 1.3\" Monochrome OLED screen with an SH1106 controller to be used as a display. These are pretty cheap (<$2 USD!) to acquire from east Asian retailers. Ensure that the hole pattern roughly matches, the pinout is acceptable (two possible options), and that the display runs an SH1106 controller.\n\nResistors, capacitors, and LEDs were chosen to be those commonly available in university electronics labs. Use of 1% or better resistors and <5% film capacitors will yield the most consistent performance. Lower tolerance components and different capacitor technologies may yield suitable performance, but no guarantees are made. Ensure that common-anode RGB LEDs are used!\n\nRegarding poteniometers, encoders, and jacks, parts with common footprints were used. Any EC11-style encoder should work with the design, and are available cheaply from east Asian retailers. \"RV09-sytle\" potentiometers can be similarly sourced cheaply. The exact same thing can be said for \"PJ-307-style\" 3.5mm TRS jacks, and \"PJ-609-style\" 1/4\" TRS jacks.\n\n\n"
+    (at 16.51 17.78 0) (size 77.47 173.99)
+    (stroke (width 0) (type default) (color 200 175 200 1))
+    (fill (type color) (color 255 223 255 1))
+    (effects (font (size 2 2) (color 72 0 72 1)) (justify left top))
+    (uuid bcc0c1bf-4fdb-4ad5-a9ed-01ef2e891369)
+  )
+  (text_box "\n\n\nOften in this design, performance vs cost/ease of assembly had to be traded off. A proper I2S audio CODEC would have significantly improved the performance of this ampifier, but would have gone against core philosophies of hand-assemble-able, through-hole design. Therefore, discrete op-amps and MCU peripherals were used to digitize and reconstruct the audio. As a byproduct, this approach lends well to discussions about high-order filter design, oversampling, dither, and noise-shaping. \n\nI also spent a bit of time debating about a mono vs. stereo output. A stereo output would have yielded the possibility of some really cool effects. However, a mono design reduces component count, simplifies component sourcing (no fancy dual-gang potentiometers), reduces board space, and requires slightly less computational power. I/O limitations (all easily-accessible I/O of the MCU is being used!) would mean a stereo implementation would be difficult. For these reasons, I've implemented effects in mono. "
+    (at 176.53 85.09 0) (size 101.6 73.66)
+    (stroke (width 0) (type default) (color 200 190 175 1))
+    (fill (type color) (color 255 242 223 1))
+    (effects (font (size 2 2) (color 128 77 0 1)) (justify left top))
+    (uuid f10b9a07-a39b-47c9-b7d9-73917aae895d)
+  )
+
+  (text "General Design Notes" (at 101.6 24.13 0)
+    (effects (font (size 3 3) (thickness 0.508) bold italic (color 132 0 0 1)) (justify left bottom))
+    (uuid b33399ed-1125-4af4-a5b6-ca0ba2e27274)
+  )
+  (text "Design Tradeoffs" (at 177.8 91.44 0)
+    (effects (font (size 3 3) (thickness 0.508) bold italic (color 128 77 0 1)) (justify left bottom))
+    (uuid b80640af-7a03-4a64-83cf-b2d40d4ca90f)
+  )
+  (text "Overall System Architecture" (at 101.6 55.88 0)
+    (effects (font (size 3 3) (thickness 0.508) bold italic (color 0 72 0 1)) (justify left bottom))
+    (uuid ba8966f4-9d14-497c-9032-b218f7a2b37d)
+  )
+  (text "User Interface Concept" (at 177.8 24.13 0)
+    (effects (font (size 3 3) (thickness 0.508) bold italic (color 0 0 72 1)) (justify left bottom))
+    (uuid d8c34727-6df1-4f6c-853c-18e645c64bae)
+  )
+  (text "Component Selection" (at 17.78 24.13 0)
+    (effects (font (size 3 3) (thickness 0.508) bold italic (color 72 0 72 1)) (justify left bottom))
+    (uuid fe188374-cb26-4b65-a1a0-078792d826ee)
+  )
+)

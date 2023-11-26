@@ -1,0 +1,8 @@
+Circuit: * D:\Dropbox (MIT)\Dropbox (MIT)\School Related\IAP DSP COURSE\Amplifier Hardware R1\Amplifier Sims\Input Stage.asc
+
+WARNING: Node N008 is floating.
+WARNING: Node N014 is floating.
+WARNING: Node N013 is floating.
+
+WARNING: Less than two connections to node n013.  This node is used by c7.
+Direct Newton iteration for .op point succeeded.
