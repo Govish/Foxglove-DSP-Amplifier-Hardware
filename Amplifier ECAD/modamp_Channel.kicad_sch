@@ -12,23 +12,23 @@
   )
 
   (lib_symbols
-    (symbol "Custom-CapacitorTHT:FG28X7R1H104KNT06" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom yes) (on_board yes)
+    (symbol "Custom-CapacitorTHT:C317C104K5R5TA" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom yes) (on_board yes)
       (property "Reference" "C" (at 0.254 1.778 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
       (property "Value" "100n" (at 0.254 -2.032 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
-      (property "Footprint" "Custom-RLC:C_Disc_L7.2mm_W2.5mm_H6.6mm_P5.00mm_MODIFIED_1" (at 0 0 0)
+      (property "Footprint" "Custom-RLC:C_KEMET_C317" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Datasheet" "https://product.tdk.com/en/system/files?file=dam/doc/product/capacitor/ceramic/lead-mlcc/catalog/leadmlcc_halogenfree_fg_en.pdf" (at 0 0 0)
+      (property "Datasheet" "https://content.kemet.com/datasheets/KEM_C1050_GOLDMAX_X7R.pdf" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Manufacturer" "TDK Corporation" (at 0 0 0)
+      (property "Manufacturer" "KEMET" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Part Number" "FG28X7R1H104KNT06" (at 0 0 0)
+      (property "Part Number" "C317C104K5R5TA" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_keywords" "CAP CER 0.1UF 50V X7R RADIAL" (at 0 0 0)
@@ -40,7 +40,7 @@
       (property "ki_fp_filters" "C_*" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "FG28X7R1H104KNT06_0_1"
+      (symbol "C317C104K5R5TA_0_1"
         (polyline
           (pts
             (xy -1.524 -0.508)
@@ -58,7 +58,7 @@
           (fill (type none))
         )
       )
-      (symbol "FG28X7R1H104KNT06_1_1"
+      (symbol "C317C104K5R5TA_1_1"
         (pin passive line (at 0 2.54 270) (length 2.032)
           (name "~" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
@@ -287,7 +287,7 @@
         )
       )
     )
-    (symbol "Custom-Optoelectronic:QBL8RGB60D0-2897" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
+    (symbol "Custom-Optoelectronic:WP154A4SEJ3VBDZGW/CA" (pin_names (offset 0) hide) (in_bom yes) (on_board yes)
       (property "Reference" "D" (at 0 9.398 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -297,25 +297,25 @@
       (property "Footprint" "Custom-DiscreteSemi:LED_D5.0mm-4_RGB" (at 0 -1.27 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Datasheet" "https://www.qt-brightek.com/datasheet/QBL8RGB60D0-2897.pdf" (at 0 -1.27 0)
+      (property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2539/WP154A4SEJ3VBDZGW-CA_Ver.1A_Jul-24-13.pdf" (at 0 -1.27 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Manufacturer" "QT Brightek (QTB)" (at 0 -1.27 0)
+      (property "Manufacturer" "Kingbright" (at 0 -1.27 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Part Number" "QBL8RGB60D0-2897" (at 0 -1.27 0)
+      (property "Part Number" "WP154A4SEJ3VBDZGW/CA" (at 0 -1.27 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_keywords" "LED RGB DIFFUSED T-1 3/4 T/H" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_description" "Red, Green, Blue (RGB) 624nm Red, 525nm Green, 470nm Blue LED Indication - Discrete 2V Red, 3.2V Green, 3.2V Blue Radial" (at 0 0 0)
+      (property "ki_description" "Red, Green, Blue (RGB) 625nm Red, 525nm Green, 470nm Blue LED Indication - Discrete 2.2V Red, 3.3V Green, 3.3V Blue Radial" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "QBL8RGB60D0-2897_0_0"
+      (symbol "WP154A4SEJ3VBDZGW/CA_0_0"
         (text "B" (at -1.905 -6.35 0)
           (effects (font (size 1.27 1.27)))
         )
@@ -326,7 +326,7 @@
           (effects (font (size 1.27 1.27)))
         )
       )
-      (symbol "QBL8RGB60D0-2897_0_1"
+      (symbol "WP154A4SEJ3VBDZGW/CA_0_1"
         (polyline
           (pts
             (xy -1.27 -5.08)
@@ -564,7 +564,7 @@
           (fill (type background))
         )
       )
-      (symbol "QBL8RGB60D0-2897_1_1"
+      (symbol "WP154A4SEJ3VBDZGW/CA_1_1"
         (pin passive line (at -5.08 5.08 0) (length 2.54)
           (name "RK" (effects (font (size 0 0))))
           (number "1" (effects (font (size 0 0))))
@@ -583,7 +583,7 @@
         )
       )
     )
-    (symbol "Custom-ResistorTHT:MFR-25FRF52-470R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
+    (symbol "Custom-ResistorTHT:CF14JT470R" (pin_numbers hide) (pin_names (offset 0)) (in_bom yes) (on_board yes)
       (property "Reference" "R" (at 2.54 0 90)
         (effects (font (size 1.27 1.27)))
       )
@@ -593,25 +593,25 @@
       (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 1.016 -0.254 90)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/YAGEO%20MFR_datasheet_2023v3.pdf" (at 0 0 0)
+      (property "Datasheet" "https://www.seielect.com/catalog/sei-cf_cfm.pdf" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Manufacturer" "YAGEO" (at 0 0 0)
+      (property "Manufacturer" "Stackpole Electronics Inc" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "Part Number" "MFR-25FRF52-470R" (at 0 0 0)
+      (property "Part Number" "CF14JT470R" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_keywords" "RES 470 OHM 1% 1/4W AXIAL" (at 0 0 0)
+      (property "ki_keywords" "RES 470 OHM 5% 1/4W AXIAL" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (property "ki_description" "470 Ohms ±1% 0.25W, 1/4W Through Hole Resistor Axial Metal Film" (at 0 0 0)
+      (property "ki_description" "470 Ohms ±5% 0.25W, 1/4W Through Hole Resistor Axial Flame Retardant Coating, Safety Carbon Film" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
       (property "ki_fp_filters" "R_*" (at 0 0 0)
         (effects (font (size 1.27 1.27)) hide)
       )
-      (symbol "MFR-25FRF52-470R_0_1"
+      (symbol "CF14JT470R_0_1"
         (polyline
           (pts
             (xy 0 -2.286)
@@ -662,7 +662,7 @@
           (fill (type none))
         )
       )
-      (symbol "MFR-25FRF52-470R_1_1"
+      (symbol "CF14JT470R_1_1"
         (pin passive line (at 0 3.81 270) (length 1.27)
           (name "~" (effects (font (size 1.27 1.27))))
           (number "1" (effects (font (size 1.27 1.27))))
@@ -889,7 +889,7 @@
     (uuid f54aceb0-eb6d-4074-a87a-e6921041fea3)
   )
 
-  (symbol (lib_id "Custom-ResistorTHT:MFR-25FRF52-470R") (at 154.94 99.06 90) (unit 1)
+  (symbol (lib_id "Custom-ResistorTHT:CF14JT470R") (at 154.94 99.06 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 087772aa-8971-40f0-9dfe-74aad412a411)
     (property "Reference" "R35" (at 154.94 93.98 90)
@@ -901,19 +901,19 @@
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 155.194 98.044 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/YAGEO%20MFR_datasheet_2023v3.pdf" (at 154.94 99.06 0)
+    (property "Datasheet" "https://www.seielect.com/catalog/sei-cf_cfm.pdf" (at 154.94 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "YAGEO" (at 154.94 99.06 0)
+    (property "Manufacturer" "Stackpole Electronics Inc" (at 154.94 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "MFR-25FRF52-470R" (at 154.94 99.06 0)
+    (property "Part Number" "CF14JT470R" (at 154.94 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 29d47228-834e-47cf-b22a-f0e7a7b3f7b1))
-    (pin "2" (uuid 706375cc-756c-46af-afcd-9baf03345646))
+    (pin "1" (uuid 6907b33e-e0d8-4de7-89e0-8fb808a6762d))
+    (pin "2" (uuid 5ff7eeb5-415a-4297-b45f-acffd4473c50))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "R35") (unit 1)
         )
@@ -930,7 +930,7 @@
     )
   )
 
-  (symbol (lib_id "Custom-ResistorTHT:MFR-25FRF52-470R") (at 125.73 69.85 90) (unit 1)
+  (symbol (lib_id "Custom-ResistorTHT:CF14JT470R") (at 125.73 69.85 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1b877c16-5c18-490e-a209-b08b5e2babf4)
     (property "Reference" "R32" (at 120.65 71.12 90)
@@ -942,19 +942,19 @@
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 125.984 68.834 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/YAGEO%20MFR_datasheet_2023v3.pdf" (at 125.73 69.85 0)
+    (property "Datasheet" "https://www.seielect.com/catalog/sei-cf_cfm.pdf" (at 125.73 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "YAGEO" (at 125.73 69.85 0)
+    (property "Manufacturer" "Stackpole Electronics Inc" (at 125.73 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "MFR-25FRF52-470R" (at 125.73 69.85 0)
+    (property "Part Number" "CF14JT470R" (at 125.73 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 54ea6cd4-55d3-46c1-9e8b-ea6a9e31e598))
-    (pin "2" (uuid ac44d2da-dbaa-4fe2-8257-a67406a43e00))
+    (pin "1" (uuid 34fd58e1-e43c-400a-abf8-919c241a8c2e))
+    (pin "2" (uuid 518e45bf-018d-4431-92ad-565e5d0e3973))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "R32") (unit 1)
         )
@@ -971,7 +971,7 @@
     )
   )
 
-  (symbol (lib_id "Custom-CapacitorTHT:FG28X7R1H104KNT06") (at 147.32 114.3 0) (mirror y) (unit 1)
+  (symbol (lib_id "Custom-CapacitorTHT:C317C104K5R5TA") (at 147.32 114.3 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1e140a8b-d336-4717-b784-58fe5203b076)
     (property "Reference" "C31" (at 144.78 113.0363 0)
@@ -980,22 +980,22 @@
     (property "Value" "100n" (at 144.78 115.5763 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Custom-RLC:C_Disc_L7.2mm_W2.5mm_H6.6mm_P5.00mm_MODIFIED_1" (at 147.32 114.3 0)
+    (property "Footprint" "Custom-RLC:C_KEMET_C317" (at 147.32 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://product.tdk.com/en/system/files?file=dam/doc/product/capacitor/ceramic/lead-mlcc/catalog/leadmlcc_halogenfree_fg_en.pdf" (at 147.32 114.3 0)
+    (property "Datasheet" "https://content.kemet.com/datasheets/KEM_C1050_GOLDMAX_X7R.pdf" (at 147.32 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "TDK Corporation" (at 147.32 114.3 0)
+    (property "Manufacturer" "KEMET" (at 147.32 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "FG28X7R1H104KNT06" (at 147.32 114.3 0)
+    (property "Part Number" "C317C104K5R5TA" (at 147.32 114.3 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 057bac15-60c0-41d1-b03d-e53e59c4f8ac))
-    (pin "2" (uuid 7e9dac6f-1e1a-48f2-a6f6-91b15f226dda))
+    (pin "1" (uuid 2bd27bd4-43f0-477e-8446-2e8328084b25))
+    (pin "2" (uuid cb4cddb5-298e-41f1-ae26-52d07769f4fe))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "C31") (unit 1)
         )
@@ -1012,7 +1012,7 @@
     )
   )
 
-  (symbol (lib_id "Custom-ResistorTHT:MFR-25FRF52-470R") (at 154.94 109.22 90) (mirror x) (unit 1)
+  (symbol (lib_id "Custom-ResistorTHT:CF14JT470R") (at 154.94 109.22 90) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 31252d5c-4a71-450e-a8db-96da24a88662)
     (property "Reference" "R36" (at 154.94 114.3 90)
@@ -1024,19 +1024,19 @@
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 155.194 110.236 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/YAGEO%20MFR_datasheet_2023v3.pdf" (at 154.94 109.22 0)
+    (property "Datasheet" "https://www.seielect.com/catalog/sei-cf_cfm.pdf" (at 154.94 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "YAGEO" (at 154.94 109.22 0)
+    (property "Manufacturer" "Stackpole Electronics Inc" (at 154.94 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "MFR-25FRF52-470R" (at 154.94 109.22 0)
+    (property "Part Number" "CF14JT470R" (at 154.94 109.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a45b5631-9fdf-4f45-8d9e-1139abebf1fd))
-    (pin "2" (uuid 0937f79b-52d2-458c-8900-94302d25cf59))
+    (pin "1" (uuid d06c0496-898e-45b5-bb68-819a89e41296))
+    (pin "2" (uuid 3ff847e2-ac1c-471e-87b5-d1821c91a627))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "R36") (unit 1)
         )
@@ -1074,14 +1074,14 @@
     (property "Part Number" "PEC11R-4230F-S0012" (at 137.16 137.16 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "A" (uuid ca0a0b73-f314-442f-8c60-9ad62e9c4c06))
-    (pin "B" (uuid a0e8b242-2021-4824-9cde-93ce0d0ba010))
-    (pin "C" (uuid 60951d7d-6f1c-4155-bcb4-8c6b9394a18f))
-    (pin "MP" (uuid 7b6f0f6a-b821-4d91-a86f-ea61c4e52907))
-    (pin "S1" (uuid 7610a733-2655-456f-9c9c-af4612c710eb))
-    (pin "S2" (uuid 0d35dfeb-c580-426d-a1ed-2a751b629c9a))
+    (pin "A" (uuid 013b7249-e27b-4592-b6d4-94dbdc3e943b))
+    (pin "B" (uuid 14ad91dc-2cfe-4af7-8a7f-8782f5360f6b))
+    (pin "C" (uuid 97125f8e-d13d-4db8-9e3c-7ac8e3cab9c9))
+    (pin "MP" (uuid bf4b0d4a-741f-4168-a481-9479d6ec292e))
+    (pin "S1" (uuid feffd0e8-0197-4b16-9744-8000f5388b49))
+    (pin "S2" (uuid 73804055-86b3-495c-9e97-b2de89fb08ac))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "SW2") (unit 1)
         )
@@ -1098,7 +1098,7 @@
     )
   )
 
-  (symbol (lib_id "Custom-ResistorTHT:MFR-25FRF52-470R") (at 125.73 74.93 90) (unit 1)
+  (symbol (lib_id "Custom-ResistorTHT:CF14JT470R") (at 125.73 74.93 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cf4daeff-5426-43cf-93a5-5bf4f10418c3)
     (property "Reference" "R33" (at 120.65 76.2 90)
@@ -1110,19 +1110,19 @@
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 125.984 73.914 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/YAGEO%20MFR_datasheet_2023v3.pdf" (at 125.73 74.93 0)
+    (property "Datasheet" "https://www.seielect.com/catalog/sei-cf_cfm.pdf" (at 125.73 74.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "YAGEO" (at 125.73 74.93 0)
+    (property "Manufacturer" "Stackpole Electronics Inc" (at 125.73 74.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "MFR-25FRF52-470R" (at 125.73 74.93 0)
+    (property "Part Number" "CF14JT470R" (at 125.73 74.93 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid dd68689f-5382-4037-863c-b620eb6c7f37))
-    (pin "2" (uuid e72e46d8-0dd3-4997-a62e-0813534684a9))
+    (pin "1" (uuid 991be13a-bf67-482f-8856-bd0e6fca5937))
+    (pin "2" (uuid f7712607-1047-4ddd-94ee-bd6e5d8e65d8))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "R33") (unit 1)
         )
@@ -1139,7 +1139,7 @@
     )
   )
 
-  (symbol (lib_id "Custom-Optoelectronic:QBL8RGB60D0-2897") (at 138.43 74.93 0) (unit 1)
+  (symbol (lib_id "Custom-Optoelectronic:WP154A4SEJ3VBDZGW/CA") (at 138.43 74.93 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid e50d1063-8385-43c4-97cb-811940a1efc4)
     (property "Reference" "D2" (at 138.43 62.23 0)
@@ -1151,21 +1151,21 @@
     (property "Footprint" "Custom-DiscreteSemi:LED_D5.0mm-4_RGB" (at 138.43 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.qt-brightek.com/datasheet/QBL8RGB60D0-2897.pdf" (at 138.43 76.2 0)
+    (property "Datasheet" "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2539/WP154A4SEJ3VBDZGW-CA_Ver.1A_Jul-24-13.pdf" (at 138.43 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "QT Brightek (QTB)" (at 138.43 76.2 0)
+    (property "Manufacturer" "Kingbright" (at 138.43 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "QBL8RGB60D0-2897" (at 138.43 76.2 0)
+    (property "Part Number" "WP154A4SEJ3VBDZGW/CA" (at 138.43 76.2 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid bff78f0c-0d3c-4752-9223-c7402326f47f))
-    (pin "2" (uuid deaa33a8-8d11-4f37-8054-72d89da27836))
-    (pin "3" (uuid c8f21a7c-402f-481d-8e29-10bb402b9b3f))
-    (pin "4" (uuid d46089b4-6779-4e22-804b-8cc56cb9f87f))
+    (pin "1" (uuid 0ca34044-4173-4240-9ad6-8558b0469d80))
+    (pin "2" (uuid 07ba0459-f81a-435c-a44d-ed277b07adad))
+    (pin "3" (uuid 19f3a34d-a00f-4edd-98a2-0ccbeee30286))
+    (pin "4" (uuid 482af5ee-d04e-405e-bac7-e7603c5476da))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "D2") (unit 1)
         )
@@ -1182,7 +1182,7 @@
     )
   )
 
-  (symbol (lib_id "Custom-ResistorTHT:MFR-25FRF52-470R") (at 125.73 80.01 90) (unit 1)
+  (symbol (lib_id "Custom-ResistorTHT:CF14JT470R") (at 125.73 80.01 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ffbe0150-418a-4cc2-854c-2072d61dc7e7)
     (property "Reference" "R34" (at 120.65 81.28 90)
@@ -1194,19 +1194,19 @@
     (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 125.984 78.994 90)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.yageo.com/upload/media/product/productsearch/datasheet/lr/YAGEO%20MFR_datasheet_2023v3.pdf" (at 125.73 80.01 0)
+    (property "Datasheet" "https://www.seielect.com/catalog/sei-cf_cfm.pdf" (at 125.73 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "YAGEO" (at 125.73 80.01 0)
+    (property "Manufacturer" "Stackpole Electronics Inc" (at 125.73 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "MFR-25FRF52-470R" (at 125.73 80.01 0)
+    (property "Part Number" "CF14JT470R" (at 125.73 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid c8383b62-a285-4fb6-b702-b3354d45a574))
-    (pin "2" (uuid 28dfa23d-0332-413d-8f57-66144f98b303))
+    (pin "1" (uuid bbab704b-d835-42c9-9f3d-86cfcb32e6f7))
+    (pin "2" (uuid 610ed349-d864-4386-8eea-013161fe2909))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae/9b7078c0-8867-4281-a527-04c08fc486d2"
           (reference "R34") (unit 1)
         )

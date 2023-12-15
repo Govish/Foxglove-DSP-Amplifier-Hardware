@@ -12,6 +12,135 @@
   )
 
   (lib_symbols
+    (symbol "Custom-Connector:35RAPC4BHN2" (in_bom yes) (on_board yes)
+      (property "Reference" "J" (at -3.81 5.08 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Value" "3.5mm TRS" (at -1.27 -11.43 0)
+        (effects (font (size 1.27 1.27)))
+      )
+      (property "Footprint" "Custom-Connector:PJ-307" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Datasheet" "https://www.switchcraft.com/assets/1/24/35rapc__hn2_cd.pdf?4712" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Manufacturer" "Switchcraft Inc." (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "Part Number" "35RAPC4BHN2" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_keywords" "CONN JACK STEREO 3.5MM R/A" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_description" "3.50mm (0.141\", 1/8\", Mini Plug) - Headphone Phone Jack Stereo (3 Conductor, TRS) Connector Solder" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (property "ki_fp_filters" "Jack*" (at 0 0 0)
+        (effects (font (size 1.27 1.27)) hide)
+      )
+      (symbol "35RAPC4BHN2_0_1"
+        (rectangle (start -5.08 -5.08) (end -6.35 -7.62)
+          (stroke (width 0.254) (type default))
+          (fill (type outline))
+        )
+        (polyline
+          (pts
+            (xy 0.508 -0.254)
+            (xy 0.762 -0.762)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 1.778 -5.334)
+            (xy 2.032 -5.842)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 0 -5.08)
+            (xy 0.635 -5.715)
+            (xy 1.27 -5.08)
+            (xy 2.54 -5.08)
+          )
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 2.54 -7.62)
+            (xy 1.778 -7.62)
+            (xy 1.778 -5.334)
+            (xy 1.524 -5.842)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 2.54 -2.54)
+            (xy 0.508 -2.54)
+            (xy 0.508 -0.254)
+            (xy 0.254 -0.762)
+          )
+          (stroke (width 0) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy -1.905 -5.08)
+            (xy -1.27 -5.715)
+            (xy -0.635 -5.08)
+            (xy -0.635 0)
+            (xy 2.54 0)
+          )
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+        (polyline
+          (pts
+            (xy 2.54 2.54)
+            (xy -2.54 2.54)
+            (xy -2.54 -5.08)
+            (xy -3.175 -5.715)
+            (xy -3.81 -5.08)
+          )
+          (stroke (width 0.254) (type default))
+          (fill (type none))
+        )
+        (rectangle (start 2.54 3.81) (end -5.08 -10.16)
+          (stroke (width 0.254) (type default))
+          (fill (type background))
+        )
+      )
+      (symbol "35RAPC4BHN2_1_1"
+        (pin passive line (at 5.08 0 180) (length 2.54)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "R" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 5.08 -2.54 180) (length 2.54)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "RN" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 5.08 2.54 180) (length 2.54)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "S" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 5.08 -5.08 180) (length 2.54)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "T" (effects (font (size 1.27 1.27))))
+        )
+        (pin passive line (at 5.08 -7.62 180) (length 2.54)
+          (name "~" (effects (font (size 1.27 1.27))))
+          (number "TN" (effects (font (size 1.27 1.27))))
+        )
+      )
+    )
     (symbol "Custom-Connector:NMJ6HFD2" (in_bom yes) (on_board yes)
       (property "Reference" "J" (at 0 11.43 0)
         (effects (font (size 1.27 1.27)))
@@ -176,135 +305,6 @@
         (pin passive line (at 5.08 2.54 180) (length 2.54)
           (name "~" (effects (font (size 1.27 1.27))))
           (number "SN" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 5.08 -5.08 180) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "T" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 5.08 -7.62 180) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "TN" (effects (font (size 1.27 1.27))))
-        )
-      )
-    )
-    (symbol "Custom-Connector:SJ1-3525N" (in_bom yes) (on_board yes)
-      (property "Reference" "J" (at 0 8.89 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Value" "SJ1-3525N" (at 0 6.35 0)
-        (effects (font (size 1.27 1.27)))
-      )
-      (property "Footprint" "Custom-Connector:PJ-307" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Datasheet" "https://www.cuidevices.com/product/resource/sj1-352xn.pdf" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Manufacturer" "CUI Devices" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "Part Number" "SJ1-3525N" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_keywords" "CONN JACK STEREO 3.5MM R/A" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_description" "3.50mm (0.141\", 1/8\", Mini Plug) - Headphone Phone Jack Stereo (3 Conductor, TRS) Connector Solder" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (property "ki_fp_filters" "Jack*" (at 0 0 0)
-        (effects (font (size 1.27 1.27)) hide)
-      )
-      (symbol "SJ1-3525N_0_1"
-        (rectangle (start -5.08 -5.08) (end -6.35 -7.62)
-          (stroke (width 0.254) (type default))
-          (fill (type outline))
-        )
-        (polyline
-          (pts
-            (xy 0.508 -0.254)
-            (xy 0.762 -0.762)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 1.778 -5.334)
-            (xy 2.032 -5.842)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 0 -5.08)
-            (xy 0.635 -5.715)
-            (xy 1.27 -5.08)
-            (xy 2.54 -5.08)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 2.54 -7.62)
-            (xy 1.778 -7.62)
-            (xy 1.778 -5.334)
-            (xy 1.524 -5.842)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 2.54 -2.54)
-            (xy 0.508 -2.54)
-            (xy 0.508 -0.254)
-            (xy 0.254 -0.762)
-          )
-          (stroke (width 0) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy -1.905 -5.08)
-            (xy -1.27 -5.715)
-            (xy -0.635 -5.08)
-            (xy -0.635 0)
-            (xy 2.54 0)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-        (polyline
-          (pts
-            (xy 2.54 2.54)
-            (xy -2.54 2.54)
-            (xy -2.54 -5.08)
-            (xy -3.175 -5.715)
-            (xy -3.81 -5.08)
-          )
-          (stroke (width 0.254) (type default))
-          (fill (type none))
-        )
-        (rectangle (start 2.54 3.81) (end -5.08 -10.16)
-          (stroke (width 0.254) (type default))
-          (fill (type background))
-        )
-      )
-      (symbol "SJ1-3525N_1_1"
-        (pin passive line (at 5.08 0 180) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "R" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 5.08 -2.54 180) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "RN" (effects (font (size 1.27 1.27))))
-        )
-        (pin passive line (at 5.08 2.54 180) (length 2.54)
-          (name "~" (effects (font (size 1.27 1.27))))
-          (number "S" (effects (font (size 1.27 1.27))))
         )
         (pin passive line (at 5.08 -5.08 180) (length 2.54)
           (name "~" (effects (font (size 1.27 1.27))))
@@ -610,7 +610,7 @@
     (stroke (width 0) (type default))
     (uuid 132b4515-12aa-418b-a439-b9358a2d9fa4)
   )
-  (wire (pts (xy 80.01 57.15) (xy 85.09 57.15))
+  (wire (pts (xy 121.92 57.15) (xy 116.84 57.15))
     (stroke (width 0) (type default))
     (uuid 16b3d519-d064-4139-a9c7-4aa729df28cb)
   )
@@ -618,7 +618,7 @@
     (stroke (width 0) (type default))
     (uuid 17781b75-9106-4117-9324-a27f4ed839fc)
   )
-  (wire (pts (xy 78.74 54.61) (xy 85.09 54.61))
+  (wire (pts (xy 123.19 54.61) (xy 116.84 54.61))
     (stroke (width 0) (type default))
     (uuid 1c2cc8b2-6bc5-4cc0-b804-c423a6a2177d)
   )
@@ -814,7 +814,7 @@
     (stroke (width 0) (type default))
     (uuid 624558c5-d6f6-4b48-bcae-bfccf5a71a6d)
   )
-  (wire (pts (xy 80.01 57.15) (xy 80.01 59.69))
+  (wire (pts (xy 121.92 57.15) (xy 121.92 59.69))
     (stroke (width 0) (type default))
     (uuid 65790df2-4540-48d4-adfa-d8e1efc4584c)
   )
@@ -1264,8 +1264,8 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 07a32122-6e95-4297-b26b-45778ca715a7)
   )
-  (label "BIAS" (at 78.74 54.61 0) (fields_autoplaced)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
+  (label "BIAS" (at 123.19 54.61 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 271f2e38-63e6-4653-a5bd-282489efe5c0)
   )
   (label "BIAS" (at 35.56 54.61 0) (fields_autoplaced)
@@ -1285,34 +1285,34 @@
     (uuid ddeb83cb-8e90-4576-bf54-262cfefa20ed)
   )
 
-  (symbol (lib_id "Custom-Connector:SJ1-3525N") (at 271.78 29.21 180) (unit 1)
+  (symbol (lib_id "Custom-Connector:35RAPC4BHN2") (at 271.78 29.21 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0519739b-8c49-45a2-928d-af3d484eb8ed)
     (property "Reference" "J7" (at 269.24 17.78 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SJ1-3525N" (at 269.24 34.29 0)
+    (property "Value" "3.5mm TRS" (at 269.24 34.29 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Custom-Connector:PJ-307" (at 271.78 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.cuidevices.com/product/resource/sj1-352xn.pdf" (at 271.78 29.21 0)
+    (property "Datasheet" "https://www.switchcraft.com/assets/1/24/35rapc__hn2_cd.pdf?4712" (at 271.78 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "CUI Devices" (at 271.78 29.21 0)
+    (property "Manufacturer" "Switchcraft Inc." (at 271.78 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "SJ1-3525N" (at 271.78 29.21 0)
+    (property "Part Number" "35RAPC4BHN2" (at 271.78 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid 5635105c-0096-4e6d-8e8c-06addc01cc31))
-    (pin "RN" (uuid 76480727-9508-4864-a12b-fcf5ce5d35ab))
-    (pin "S" (uuid b654c34c-e914-468a-8f6a-0b6abb52d785))
-    (pin "T" (uuid f4e4fc2f-2f8c-46b0-ae5f-e8ded32f77f3))
-    (pin "TN" (uuid 5e16b3e1-c7d3-414f-949f-808642741641))
+    (pin "R" (uuid 3b622757-9a50-4cc6-8b06-ecf4eb681f7d))
+    (pin "RN" (uuid 600de897-9beb-4df3-bb17-28210bc794c3))
+    (pin "S" (uuid e8d7a11b-e550-46dd-aaa2-2023f370155c))
+    (pin "T" (uuid 07bb5b64-5b56-4773-9901-4f0d7d6197fa))
+    (pin "TN" (uuid 6e5ff330-8576-4e9f-855a-e26daf23ded2))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J7") (unit 1)
         )
@@ -1335,9 +1335,9 @@
     (property "Datasheet" "~" (at 269.24 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 4ba344af-39be-4fa4-b215-967e8ead288e))
+    (pin "1" (uuid e28b6e53-06d8-4ca1-95fb-a4a19f481180))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H7") (unit 1)
         )
@@ -1360,9 +1360,9 @@
     (property "Datasheet" "" (at 33.02 35.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 2a1e71d7-b187-49ba-b165-3d378633b143))
+    (pin "1" (uuid 7c48a1ce-73c7-440d-8481-1373ea2eaa30))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR01") (unit 1)
         )
@@ -1391,14 +1391,14 @@
     (property "Part Number" "NMJ6HFD2" (at 26.67 83.82 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid bf0fdea5-0215-4f3d-baab-ae64b5d1fd7f))
-    (pin "RN" (uuid d928820d-02b7-4da2-aa15-21069bc54dfd))
-    (pin "S" (uuid f0ed0948-adff-44ed-aa01-f12e1473a9fd))
-    (pin "SN" (uuid 48e751b8-db61-472d-bb35-40fdec93fddf))
-    (pin "T" (uuid 2d0cbf60-4129-485f-8407-8ec997d7d04c))
-    (pin "TN" (uuid 628b47e5-100b-443f-a981-e9529326cb66))
+    (pin "R" (uuid 92ee6311-50de-44ed-883e-a47321c9f9c6))
+    (pin "RN" (uuid 2343a59e-8e59-4fc6-bf61-e6a5357c6fa9))
+    (pin "S" (uuid bb498176-93b4-4a32-aa36-1776f61c7551))
+    (pin "SN" (uuid 86aed27a-29d6-48d4-a252-28fc3ec426cf))
+    (pin "T" (uuid 0c48557a-b340-4dec-8535-a0b54799aca0))
+    (pin "TN" (uuid 9f7ec87f-43a8-4db8-920b-512c97311572))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J3") (unit 1)
         )
@@ -1421,9 +1421,9 @@
     (property "Datasheet" "" (at 34.29 190.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 28f7608b-c62b-4ebf-bdcb-efb3be8096f5))
+    (pin "1" (uuid 273d6218-1d22-4edb-b941-51512a9c32e7))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR06") (unit 1)
         )
@@ -1446,9 +1446,9 @@
     (property "Datasheet" "~" (at 269.24 88.9 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 96795db2-b401-43bd-979f-80e29113a9a2))
+    (pin "1" (uuid d765ff9e-9b41-4a29-bcdc-8bfa531f5eb4))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H1") (unit 1)
         )
@@ -1477,14 +1477,14 @@
     (property "Part Number" "NMJ6HFD2" (at 26.67 116.84 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid 2f2b5e4c-cf5e-4cc2-900f-86383370d437))
-    (pin "RN" (uuid 4720a6e8-148e-4181-a370-d169e345c77b))
-    (pin "S" (uuid 78339d44-665e-4061-9b3c-f86f5930bfb3))
-    (pin "SN" (uuid 1937ebd4-0e27-485f-b47e-e603bba7ad5a))
-    (pin "T" (uuid 155e7ac5-051e-480b-a32f-d0f046ced331))
-    (pin "TN" (uuid 14911cc9-539e-47f6-b53b-90811bbd5456))
+    (pin "R" (uuid e06a4ac2-47d0-45ae-a4e9-31de4b7e109a))
+    (pin "RN" (uuid 53004154-e5dc-4a42-94b5-c206e1ccee5c))
+    (pin "S" (uuid f6bb561d-edbf-41b6-8580-8257d73d67b7))
+    (pin "SN" (uuid eb45f2de-5486-4069-8ceb-1349e206e32c))
+    (pin "T" (uuid bc57fd38-2c78-40cf-b32a-d59fd0f248e0))
+    (pin "TN" (uuid a8a919a6-97d7-4d04-9d5c-31a5344241b8))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J4") (unit 1)
         )
@@ -1507,9 +1507,9 @@
     (property "Datasheet" "~" (at 269.24 106.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8a744b34-a291-445d-8e3c-ff6f128a5a57))
+    (pin "1" (uuid 07a82da6-6c43-4dea-adaf-9be9877089cc))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H3") (unit 1)
         )
@@ -1532,9 +1532,9 @@
     (property "Datasheet" "" (at 39.37 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 200c7025-d407-4fb6-9937-7c130f0c5552))
+    (pin "1" (uuid 9e0c1d49-908e-427b-b552-272553acbb37))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR07") (unit 1)
         )
@@ -1557,9 +1557,9 @@
     (property "Datasheet" "" (at 80.01 68.58 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 04c3afd8-e849-41cf-bb15-3e2fcc7fd623))
+    (pin "1" (uuid 40564ddb-587d-42af-b2da-f33efbf20360))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR09") (unit 1)
         )
@@ -1582,9 +1582,9 @@
     (property "Datasheet" "" (at 217.17 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1e51cac5-c9a4-4688-afc1-47bf15d9ab1e))
+    (pin "1" (uuid 19ef1eed-ce59-4aa0-87ae-03db07cf54b6))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR014") (unit 1)
         )
@@ -1607,9 +1607,9 @@
     (property "Datasheet" "~" (at 269.24 97.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0b41cc85-863a-463e-9e61-f672e559675b))
+    (pin "1" (uuid f5ba7d6e-890e-40dd-a6d2-075406555e8d))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H2") (unit 1)
         )
@@ -1632,9 +1632,9 @@
     (property "Datasheet" "" (at 34.29 157.48 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 01e78cc1-d284-4539-9d66-71965ea12001))
+    (pin "1" (uuid 42856e3a-9ce3-49ce-9497-ecc90401bbd1))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR05") (unit 1)
         )
@@ -1657,9 +1657,9 @@
     (property "Datasheet" "~" (at 269.24 151.13 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid dae557e2-9c91-4caf-a6a8-129016e91600))
+    (pin "1" (uuid 3ad3932d-3cd3-4900-8bb6-a345fce3f12a))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H8") (unit 1)
         )
@@ -1682,9 +1682,9 @@
     (property "Datasheet" "" (at 33.02 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0465daa8-9342-458a-932c-b640aa4a869b))
+    (pin "1" (uuid 38e03fd2-c3e6-448b-9903-d3a158c518c5))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR02") (unit 1)
         )
@@ -1707,9 +1707,9 @@
     (property "Datasheet" "" (at 264.16 35.56 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid f610e27d-371f-414c-9b3c-7ce5343d8404))
+    (pin "1" (uuid 7e40a05a-66c7-4ae1-b0a4-31e2a18ea8ce))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR015") (unit 1)
         )
@@ -1732,9 +1732,9 @@
     (property "Datasheet" "" (at 207.01 142.24 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 5fab66b1-469d-4c62-a7e7-5a6025c01fca))
+    (pin "1" (uuid ea98d02c-0d9e-451b-bad7-2162eb2c142d))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR011") (unit 1)
         )
@@ -1757,9 +1757,9 @@
     (property "Datasheet" "" (at 77.47 190.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 143dfd43-9854-4b56-a839-fa469df8e7e8))
+    (pin "1" (uuid 2a5f7154-902c-47d6-badf-7d7d5fbf2538))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR08") (unit 1)
         )
@@ -1782,9 +1782,9 @@
     (property "Datasheet" "" (at 265.43 153.67 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 70510989-2efd-45a9-b06b-4e47be85313a))
+    (pin "1" (uuid cbc40a73-f718-44e9-8b4f-62f8eeec203d))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR016") (unit 1)
         )
@@ -1813,14 +1813,14 @@
     (property "Part Number" "NMJ6HFD2" (at 26.67 182.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid cd5e0241-c115-42c2-b3f3-a948000c9d96))
-    (pin "RN" (uuid 346f21d2-2b1d-47a6-ba59-a24685dc87b7))
-    (pin "S" (uuid 1c7f1f59-3cc7-4949-aa26-46158d9fb6d2))
-    (pin "SN" (uuid 3db77142-336e-4c5b-bf1e-cc5d36569ce6))
-    (pin "T" (uuid cc6078ea-fc87-4c33-a651-ee9291e3d0f7))
-    (pin "TN" (uuid 0abfe2d9-fc2d-4020-a7c4-e3ed434d33fa))
+    (pin "R" (uuid 0799fac4-013e-4c22-b46f-162a0636993b))
+    (pin "RN" (uuid 6c8214a9-f38d-4122-ad1c-a9720062853c))
+    (pin "S" (uuid 3c55b7fd-8a55-41c9-accb-1a57a1bf13d4))
+    (pin "SN" (uuid 828a4b55-c3da-41c1-b265-953db46e47f2))
+    (pin "T" (uuid 11543c98-7eca-4cb5-8a51-a8ffc0a7937f))
+    (pin "TN" (uuid d336705f-7ce1-472c-8ef3-e3419d403439))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J6") (unit 1)
         )
@@ -1843,9 +1843,9 @@
     (property "Datasheet" "" (at 217.17 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 2aa1e201-0b3a-4009-ad56-cee3e10d2c9c))
+    (pin "1" (uuid 166d1794-0fe1-4e01-be8a-47d8576fe269))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR013") (unit 1)
         )
@@ -1874,14 +1874,14 @@
     (property "Part Number" "NMJ6HFD2" (at 26.67 149.86 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid 409c664f-b4ea-456f-bbd5-fa9d8e7e86d6))
-    (pin "RN" (uuid 75c12566-a620-473e-8e01-435fbed72279))
-    (pin "S" (uuid 566eae33-cc52-4be4-a0ca-8415976fd865))
-    (pin "SN" (uuid 5b05c780-d8a6-424f-88de-3087ebb5fc7b))
-    (pin "T" (uuid ab3b6e08-ffb3-42a2-9051-6fa37d75763a))
-    (pin "TN" (uuid 6d68a2bb-daa3-4eef-9eea-030c7c704654))
+    (pin "R" (uuid a9d748bd-fc2e-42f2-a4b1-2949e0bd8c7a))
+    (pin "RN" (uuid c2ea774e-fbb6-41d1-9223-610190a0f869))
+    (pin "S" (uuid b14ef741-cc43-4d61-93b2-02de6a5ea4cf))
+    (pin "SN" (uuid 54e9d22c-3228-4e07-83f5-cfb3ee5365af))
+    (pin "T" (uuid 1673fedd-7a49-43d0-8bb4-64a90d94d75f))
+    (pin "TN" (uuid b233b54c-a814-4887-a9ed-cdd71a9b62aa))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J5") (unit 1)
         )
@@ -1889,24 +1889,24 @@
     )
   )
 
-  (symbol (lib_id "power:GND") (at 80.01 59.69 0) (unit 1)
+  (symbol (lib_id "power:GND") (at 121.92 59.69 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9fbd622a-3b74-42ca-bace-4fbded8a9ccc)
-    (property "Reference" "#PWR028" (at 80.01 66.04 0)
+    (property "Reference" "#PWR028" (at 121.92 66.04 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Value" "GND" (at 80.01 63.5 0)
+    (property "Value" "GND" (at 121.92 63.5 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 80.01 59.69 0)
+    (property "Footprint" "" (at 121.92 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "" (at 80.01 59.69 0)
+    (property "Datasheet" "" (at 121.92 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid b508fb41-57e0-475f-9909-aea247a53822))
+    (pin "1" (uuid 37045c4e-5eb5-4c4e-bca0-693aa32e4394))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR028") (unit 1)
         )
@@ -1929,9 +1929,9 @@
     (property "Datasheet" "~" (at 269.24 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 8ca33140-6262-4b11-8a42-93b3d2dbf3e9))
+    (pin "1" (uuid f2e97027-d9cd-4575-99ea-ec6164292ac9))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H6") (unit 1)
         )
@@ -1954,9 +1954,9 @@
     (property "Datasheet" "" (at 171.45 59.69 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 0c3b3cac-e6bc-4bf8-9e11-b20be689138b))
+    (pin "1" (uuid 98cc7186-70be-44ac-924f-8cf9c3f8b92f))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR029") (unit 1)
         )
@@ -1979,9 +1979,9 @@
     (property "Datasheet" "" (at 34.29 124.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e9252c20-d4c9-4807-b6ac-da2a66866220))
+    (pin "1" (uuid 2964e146-e85e-4871-b18c-c877b8ac1be4))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR04") (unit 1)
         )
@@ -2004,9 +2004,9 @@
     (property "Datasheet" "" (at 217.17 82.55 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 93bdcf12-8237-4653-806c-bb04eb0c189d))
+    (pin "1" (uuid 34675520-3774-4d47-969f-9559bedfd3f4))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR012") (unit 1)
         )
@@ -2029,9 +2029,9 @@
     (property "Datasheet" "~" (at 269.24 124.46 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 87a26000-a2e9-4d68-ae45-9417d4edb384))
+    (pin "1" (uuid 0d1e6fdf-4c25-4a95-a9c2-b7106ed50b58))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H5") (unit 1)
         )
@@ -2054,9 +2054,9 @@
     (property "Datasheet" "~" (at 269.24 115.57 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid e843d849-59af-4421-b14b-122888418ddb))
+    (pin "1" (uuid cc5210a7-3404-4069-9033-8830c46c764e))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "H4") (unit 1)
         )
@@ -2079,9 +2079,9 @@
     (property "Datasheet" "" (at 207.01 99.06 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 36128cd3-922b-4dda-a19f-6ace3087dfa9))
+    (pin "1" (uuid 3ecb240f-9fa2-40be-aa18-7f4acaf44b91))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR010") (unit 1)
         )
@@ -2110,14 +2110,14 @@
     (property "Part Number" "NMJ6HFD2" (at 26.67 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid 21a81aed-dd00-404a-bb2b-17e61627921b))
-    (pin "RN" (uuid d16ffede-ce87-4e14-aa53-987972d7f03e))
-    (pin "S" (uuid c5714872-0557-4219-b43b-6310e0220f43))
-    (pin "SN" (uuid e6cc991f-bcbc-4bdb-8f3c-351bb5ed0834))
-    (pin "T" (uuid 3cd3f506-bce8-4bf1-8a1e-96207c223e76))
-    (pin "TN" (uuid 4029a9db-da0f-4669-8d51-85fc769d40f0))
+    (pin "R" (uuid 0fd964fc-0f54-4898-bb3a-0a8d2eacc39b))
+    (pin "RN" (uuid e7353a34-c07e-43f4-a759-f986c84675c8))
+    (pin "S" (uuid 51f4682d-6eaf-48f7-a25e-de853271a0af))
+    (pin "SN" (uuid c6ad4f8a-2a60-44c1-8619-087ef9a92b4d))
+    (pin "T" (uuid d1133605-cf95-4f68-aa28-4141ad2732a7))
+    (pin "TN" (uuid b423472f-09d6-4d91-b62f-a64bdafb3968))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J2") (unit 1)
         )
@@ -2140,9 +2140,9 @@
     (property "Datasheet" "" (at 34.29 91.44 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid 1beb3fe1-2f51-4806-beeb-60d4424340ff))
+    (pin "1" (uuid cc8a3dbb-e55c-4fa9-b403-ebb3ac4649ac))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "#PWR03") (unit 1)
         )
@@ -2150,34 +2150,34 @@
     )
   )
 
-  (symbol (lib_id "Custom-Connector:SJ1-3525N") (at 25.4 29.21 0) (mirror x) (unit 1)
+  (symbol (lib_id "Custom-Connector:35RAPC4BHN2") (at 25.4 29.21 0) (mirror x) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid f8dad0b1-fe6e-4cc9-9d34-ccee7ff8e8c8)
     (property "Reference" "J1" (at 27.94 17.78 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SJ1-3525N" (at 27.94 34.29 0)
+    (property "Value" "3.5mm TRS" (at 27.94 34.29 0)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Footprint" "Custom-Connector:PJ-307" (at 25.4 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Datasheet" "https://www.cuidevices.com/product/resource/sj1-352xn.pdf" (at 25.4 29.21 0)
+    (property "Datasheet" "https://www.switchcraft.com/assets/1/24/35rapc__hn2_cd.pdf?4712" (at 25.4 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer" "CUI Devices" (at 25.4 29.21 0)
+    (property "Manufacturer" "Switchcraft Inc." (at 25.4 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Part Number" "SJ1-3525N" (at 25.4 29.21 0)
+    (property "Part Number" "35RAPC4BHN2" (at 25.4 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "R" (uuid 22a67bad-4ae6-48fa-871c-b28e22a2ef7e))
-    (pin "RN" (uuid 7d871711-ce6e-4f9d-8e48-a13b3904c6cc))
-    (pin "S" (uuid d4b0071e-05e1-4763-a3a6-eef87ef62f01))
-    (pin "T" (uuid 60c63d4f-74d7-4808-bdb9-7a8fd6d05c49))
-    (pin "TN" (uuid 12511f37-8c05-452e-a5b6-38377a9fd517))
+    (pin "R" (uuid 87df1940-730b-49f9-aabd-02388d434267))
+    (pin "RN" (uuid ccf5aada-9dd6-4397-815f-65c9db1ff8a7))
+    (pin "S" (uuid c3d538e0-de10-4be3-ade6-3455b7df4011))
+    (pin "T" (uuid 0896570f-c487-4731-8e20-9ab28b25a80b))
+    (pin "TN" (uuid e3f161db-8bd6-40c7-a11b-3c3ac126d887))
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae"
           (reference "J1") (unit 1)
         )
@@ -2203,17 +2203,17 @@
       (effects (font (size 1.27 1.27)) (justify left))
       (uuid a4feb45b-0e6a-424d-8719-cc752bb39ccb)
     )
-    (pin "BIAS" passive (at 85.09 54.61 180)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (pin "BIAS" passive (at 116.84 54.61 0)
+      (effects (font (size 1.27 1.27)) (justify right))
       (uuid 3b3d6f25-a76a-4480-bc69-40ac967e6963)
     )
-    (pin "GND" passive (at 85.09 57.15 180)
-      (effects (font (size 1.27 1.27)) (justify left))
+    (pin "GND" passive (at 116.84 57.15 0)
+      (effects (font (size 1.27 1.27)) (justify right))
       (uuid d1b3d6de-6341-4040-be4d-4be5bbd00967)
     )
     (instances
-      (project "Amplifier Hardware R1"
-        (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "5"))
+      (project "Amplifier Hardware RevB"
+        (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "4"))
       )
     )
   )
@@ -2241,7 +2241,7 @@
       (uuid 18d3c50f-2466-4275-abfd-9e465e0b1049)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "8"))
       )
     )
@@ -2302,7 +2302,7 @@
       (uuid 53caa6cb-859e-44f9-9b68-297244a5401f)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "12"))
       )
     )
@@ -2335,8 +2335,8 @@
       (uuid 95444636-bc51-4a6e-89a3-924f61943ee6)
     )
     (instances
-      (project "Amplifier Hardware R1"
-        (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "6"))
+      (project "Amplifier Hardware RevB"
+        (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "5"))
       )
     )
   )
@@ -2408,7 +2408,7 @@
       (uuid f66dffd0-e11f-4e6e-a685-5a3168c60224)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "13"))
       )
     )
@@ -2445,7 +2445,7 @@
       (uuid ed4b09a6-19e6-4add-bde9-df69e0946c9d)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "3"))
       )
     )
@@ -2462,7 +2462,7 @@
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "14"))
       )
     )
@@ -2523,7 +2523,7 @@
       (uuid 2dae403f-38e2-463c-ac01-a8f7bafe2768)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "10"))
       )
     )
@@ -2708,7 +2708,7 @@
       (uuid 7372d322-a2e5-4901-97c9-86f5baa50b7c)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "7"))
       )
     )
@@ -2753,8 +2753,8 @@
       (uuid fa0f399f-2aaf-4b70-b9cc-e0dc648bde12)
     )
     (instances
-      (project "Amplifier Hardware R1"
-        (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "4"))
+      (project "Amplifier Hardware RevB"
+        (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "6"))
       )
     )
   )
@@ -2790,7 +2790,7 @@
       (uuid c669f048-f060-4d9c-af64-82399b349f60)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "2"))
       )
     )
@@ -2851,7 +2851,7 @@
       (uuid 895ebd76-0e48-47a0-975a-03d3988dabf1)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "11"))
       )
     )
@@ -2912,7 +2912,7 @@
       (uuid 535f6c32-6037-4254-a90f-0572c8600e6e)
     )
     (instances
-      (project "Amplifier Hardware R1"
+      (project "Amplifier Hardware RevB"
         (path "/e2090ed5-0c0e-40bb-b0f5-d128ffed01ae" (page "9"))
       )
     )
