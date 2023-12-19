@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "ostream": "cpp"
-    }
+    },
+    "julia.environmentPath": "d:\\Dropbox (MIT)\\Dropbox (MIT)\\School Related\\IAP DSP COURSE\\Foxglove-DSP-Amplifier\\Amplifier Firmware\\Test Firmware\\Passthrough Test"
 }
