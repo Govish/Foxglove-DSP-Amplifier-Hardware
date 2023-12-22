@@ -53,7 +53,8 @@ public:
     //write new audio out data to the peripheral
     //function will automatically route it to the right place in the DMA buffer
     //would like to use a std::span here but need C++17 for that, so using a std::array reference instead
-    static void update(std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE>& block_in);
+    static void __attribute__((optimize("-O3"))) //hopefully compiler can use efficient copies for here
+    update(std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE>& block_in);
 
     //have some kinda function to call every half-DMA-buffer cycle
     //basically this should reschedule the ADC reading

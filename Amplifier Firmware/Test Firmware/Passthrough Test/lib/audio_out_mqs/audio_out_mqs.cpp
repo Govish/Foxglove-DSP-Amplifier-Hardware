@@ -219,6 +219,9 @@ void Audio_Out_MQS::mqs_isr() {
 	//and run the user callback function at a reduced interrupt priority
 	//generic software interrupt request 
 	NVIC_SET_PENDING(IRQ_SOFTWARE);
+
+	//ensure everything is synchronized--need this instruction in the ISR
+    asm volatile("dsb");
 }
 
 void Audio_Out_MQS::user_callback_isr() {
@@ -228,6 +231,9 @@ void Audio_Out_MQS::user_callback_isr() {
 
 	//run the user callback function
 	user_cb();
+
+	//ensure everything is synchronized--need this instruction in the ISR
+    asm volatile("dsb");
 }
 
 

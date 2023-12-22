@@ -16,6 +16,8 @@ namespace App_Constants {
     //instead of processing a single sample at a time
     //firmware will process a "block" of data, similar to audio library
     //this constant sets how big those blocks are
+    //highly recommend keeping this as a multiple of 16 --> caching behavior is a little muddy
+    //with non-32-byte memory chunks (each block element is an int16_t hence multiple of 16, not 32)
     constexpr size_t PROCESSING_BLOCK_SIZE = 128;
 
     //operating frequencies and ratios
@@ -51,6 +53,11 @@ namespace Audio_Clocking_Constants {
     //sets the bit clock frequency as a fraction of the SAI3 clock frequency
     //I2S3_clock_freq = SAI3_clock_freq / PRESC
     constexpr uint32_t I2S3_PRESC = 16;
+
+    //ADC sampling clock divider from 24MHz
+    //this setting informs the PIT channel 0 load value to schedule ADC readings
+    //timer will be clocked from a 24MHz source
+    constexpr uint32_t ADC_SAMPLING_DIVIDER = 24000000UL / App_Constants::AUDIO_SAMPLE_RATE_HZ;
 };
 
 //##############################################################################################################################################
@@ -67,6 +74,9 @@ static constexpr uint32_t MQS_INPUT_FREQUENCY = App_Constants::MQS_OVERSAMPLE_RA
 
 static constexpr uint32_t BIT_CLOCK_CYCLES_PER_FRAME = 32; //how many times the bit clock cycles constitute of one MQS L+R data frame
 static constexpr uint32_t I2S3_INPUT_FREQUENCY = App_Constants::AUDIO_SAMPLE_RATE_HZ * BIT_CLOCK_CYCLES_PER_FRAME * Audio_Clocking_Constants::I2S3_PRESC;
+
+static_assert(  App_Constants::PROCESSING_BLOCK_SIZE % 16 == 0,
+                "HIGHLY recommend to have PROCESSING_BLOCK_SIZE be a multiple of 16");
 
 static_assert(  App_Constants::MQS_OVERSAMPLE_RATE == 32 || App_Constants::MQS_OVERSAMPLE_RATE == 64,
                 "MQS_OVERSAMPLE_RATE needs to be 32 or 64!");
@@ -118,3 +128,6 @@ static_assert(  Audio_Clocking_Constants::I2S3_PRESC >= 2,
 
 static_assert(  Audio_Clocking_Constants::I2S3_PRESC <= 512,
                 "I2S3_PRESC must be at most 512!");
+
+static_assert(  24000000.0f / ((float)Audio_Clocking_Constants::ADC_SAMPLING_DIVIDER) == (float)App_Constants::AUDIO_SAMPLE_RATE_HZ,
+                "ADC_SAMPLING_DIVIDER and AUDIO_SAMPLE_RATE_HZ mismatch! Correct one of them!");
