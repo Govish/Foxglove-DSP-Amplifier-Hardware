@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Amplifier Front Panel")(type "KiCad")(uri "D:/Dropbox (MIT)/Dropbox (MIT)/School Related/IAP DSP COURSE/Foxglove-DSP-Amplifier/Amplifier Front Panel/Amplifier Front Panel.pretty")(options "")(descr ""))
+)

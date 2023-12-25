@@ -1,0 +1,14 @@
+(footprint "hole_mask_pullback" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (attr smd)
+  (fp_text reference "REF**" (at 0 -0.5 unlocked) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.1)))
+    (tstamp b959334c-c6ec-48be-908e-42cf12641d42)
+  )
+  (fp_text value "hole_mask_pullback" (at 0 1 unlocked) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 78a14409-60cc-4a3b-8484-7b21f9ddfd2c)
+  )
+  (fp_circle (center 0 0) (end 3.5 0)
+    (stroke (width 0) (type solid)) (fill solid) (layer "F.Mask") (tstamp 4566d505-ceb9-4dd8-acc8-3ad974321890))
+)
