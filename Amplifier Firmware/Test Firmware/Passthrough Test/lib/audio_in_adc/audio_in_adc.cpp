@@ -45,7 +45,7 @@ void Audio_In_ADC::init() {
 	IMXRT_ADC_ETC.TRIG[ADC2_TRIGGER_CHANNEL].CTRL = 
         ADC_ETC_TRIG_CTRL_TRIG_CHAIN(TRIGGER_LENGTH - 1) | ADC_ETC_TRIG_CTRL_TRIG_PRIORITY(7); //highest priority
 	IMXRT_ADC_ETC.TRIG[ADC2_TRIGGER_CHANNEL].CHAIN_1_0 = ADC_ETC_TRIG_CHAIN_HWTS0(1) | //drop into ADC2 hardware trigger 0
-		ADC_ETC_TRIG_CHAIN_CSEL0(App_Constants::INPUT_ADC_CHANNEL) | ADC_ETC_TRIG_CHAIN_B2B0; //measure our selected channel, no delays
+		ADC_ETC_TRIG_CHAIN_CSEL0(Pindefs::INPUT_ADC_CHANNEL) | ADC_ETC_TRIG_CHAIN_B2B0; //measure our selected channel, no delays
 
     //now set up our crossbar to trigger ADC_ETC channel 4 from our PIT channel 0
     //NOTE: there's a weird "S" in the XBAR block diagram in the path of the PIT 
@@ -61,7 +61,7 @@ void Audio_In_ADC::init() {
      *  We'll instead configure the ADC (ADC2) at the register level, similar to how it's done
      *  in the audio library
      * 
-     * NOTE: total ADC conversion time set bY:
+     * NOTE: total ADC conversion time set by:
      *  t_conv = sfc_adder + average_num * (bct + lst_adder)
      *      single/first continuous time adder --> 4 ADCK cycles + 2 bus clock cycles
      *      average number factor --> 1 - 32x
@@ -74,6 +74,12 @@ void Audio_In_ADC::init() {
      *  ADACK will tick at 10MHz if ADHSC = 0 and 20MHz if ADHSC is 1
      * 
      */
+
+
+    //REALLY IMPORTANT! set the audio input pin to INPUT!!!
+    //without calling it defaults to this input pull with hysteresis mode, which adds distortion to sources with non-zero output impedance
+    //was an interesting bug to track down, but everything sounds good now!
+    pinMode(Pindefs::INPUT_ADC_PIN, INPUT);
 
     //set our averaging, conversion trigger
     //  conversion speed, conversion mode, sample time,

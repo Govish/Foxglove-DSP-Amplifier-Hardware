@@ -12,6 +12,57 @@
 
 #include <Arduino.h> //for types and stuff
 
+namespace Pindefs {
+    //RGB LED pin mapping
+    constexpr uint8_t LED_CHAN1_R = 0;
+    constexpr uint8_t LED_CHAN1_B = 2;
+    constexpr uint8_t LED_CHAN1_G = 1;
+    constexpr uint8_t LED_CHAN2_R = 3;
+    constexpr uint8_t LED_CHAN2_B = 5;
+    constexpr uint8_t LED_CHAN2_G = 4;
+    constexpr uint8_t LED_CHAN3_R = 6;
+    constexpr uint8_t LED_CHAN3_B = 8;
+    constexpr uint8_t LED_CHAN3_G = 7;
+    constexpr uint8_t LED_CHAN4_R = 9;
+    constexpr uint8_t LED_CHAN4_B = 24;
+    constexpr uint8_t LED_CHAN4_G = 11;
+    constexpr uint8_t LED_MAIN_R = 25;
+    constexpr uint8_t LED_MAIN_B = 29;
+    constexpr uint8_t LED_MAIN_G = 28;
+    constexpr bool RGB_ACTIVE_HIGH = false; //RGB LEDs are active LOW
+
+    //Encoder pin mapping
+    constexpr uint8_t ENC_CHAN1_A = 33;
+    constexpr uint8_t ENC_CHAN1_B = 34;
+    constexpr uint8_t ENC_CHAN1_SW = 32;
+    constexpr uint8_t ENC_CHAN2_A = 35;
+    constexpr uint8_t ENC_CHAN2_B = 36;
+    constexpr uint8_t ENC_CHAN2_SW = 31;
+    constexpr uint8_t ENC_CHAN3_A = 37;
+    constexpr uint8_t ENC_CHAN3_B = 38;
+    constexpr uint8_t ENC_CHAN3_SW = 30;
+    constexpr uint8_t ENC_CHAN4_A = 39;
+    constexpr uint8_t ENC_CHAN4_B = 40;
+    constexpr uint8_t ENC_CHAN4_SW = 27;
+    constexpr uint8_t ENC_MAIN_A = 41;
+    constexpr uint8_t ENC_MAIN_B = 17;
+    constexpr uint8_t ENC_MAIN_SW = 26;
+
+    //Input level indicator pin mapping
+    constexpr uint8_t LEVEL_LOW = 10;
+    constexpr uint8_t LEVEL_MED = 13;
+    constexpr uint8_t LEVEL_HIGH = 14;
+    constexpr uint8_t LEVEL_CLIP = 15;
+    constexpr bool LEVEL_ACTIVE_HIGH = false; //LEDs here are active LOW
+    
+    //ADC pin and channel for sampling
+    //pin corresponds to the Arduino pin; channel corresponds to the ADC2 channel
+    constexpr uint8_t INPUT_ADC_PIN = A2;
+    constexpr uint32_t INPUT_ADC_CHANNEL = 12;
+
+    //output is hardcoded on pin 12 --> has to be mapped to an MQS pin (other option is 10, change in `audio_output_mqs.cpp`)
+}
+
 namespace App_Constants {
     //instead of processing a single sample at a time
     //firmware will process a "block" of data, similar to audio library
@@ -28,11 +79,17 @@ namespace App_Constants {
     //interrupt priorities
     constexpr uint8_t MQS_DMA_INT_PRIO = 10;
     constexpr uint8_t AUDIO_BLOCK_PROCESS_PRIO = 20;
+    constexpr uint8_t ENC_SAMPLING_PRIO = 30;
 
-    //ADC channel for sampling
-    //NOTE: this is not the arduino pin number! It's the ADC channel with respect to ADC2
-    constexpr uint32_t INPUT_ADC_CHANNEL = 12; //pin A2
-
+    //encoder and switch bounce time (seconds)
+    //switch algorithm will sample switches at this frequency
+    //will technically be approximate, but not a precision timing application
+    constexpr float ENC_BOUNCE_TIME = 2.5e-3f;
+    constexpr float ENC_SW_BOUNCE_TIME = 15e-3f; //will run off the same interrupt, just sample less frequently
+    
+    //how many encoder instances we'll be running total
+    //this is so we don't need a growable container (and therefore heap allocation) to store all encoder instances
+    constexpr size_t NUM_ENCODERS = 5;
 };
 
 namespace Audio_Clocking_Constants {
@@ -131,3 +188,59 @@ static_assert(  Audio_Clocking_Constants::I2S3_PRESC <= 512,
 
 static_assert(  24000000.0f / ((float)Audio_Clocking_Constants::ADC_SAMPLING_DIVIDER) == (float)App_Constants::AUDIO_SAMPLE_RATE_HZ,
                 "ADC_SAMPLING_DIVIDER and AUDIO_SAMPLE_RATE_HZ mismatch! Correct one of them!");
+
+//check ADC channel
+//use the pin mapping below to ensure the ADC channel and MCU pin are the same
+//lifted from `input_adc.cpp` in the PJRC Audio Library
+PROGMEM static constexpr uint8_t adc2_pin_to_channel[] = {
+	7,      // 0/A0  AD_B1_02
+	8,      // 1/A1  AD_B1_03
+	12,     // 2/A2  AD_B1_07
+	11,     // 3/A3  AD_B1_06
+	6,      // 4/A4  AD_B1_01
+	5,      // 5/A5  AD_B1_00
+	15,     // 6/A6  AD_B1_10
+	0,      // 7/A7  AD_B1_11
+	13,     // 8/A8  AD_B1_08
+	14,     // 9/A9  AD_B1_09
+	255,	// 10/A10 AD_B0_12 - only on ADC1, 1 - can't use for audio
+	255,	// 11/A11 AD_B0_13 - only on ADC1, 2 - can't use for audio
+	3,      // 12/A12 AD_B1_14
+	4,      // 13/A13 AD_B1_15
+	7,      // 14/A0  AD_B1_02
+	8,      // 15/A1  AD_B1_03
+	12,     // 16/A2  AD_B1_07
+	11,     // 17/A3  AD_B1_06
+	6,      // 18/A4  AD_B1_01
+	5,      // 19/A5  AD_B1_00
+	15,     // 20/A6  AD_B1_10
+	0,      // 21/A7  AD_B1_11
+	13,     // 22/A8  AD_B1_08
+	14,     // 23/A9  AD_B1_09
+	255,    // 24/A10 AD_B0_12 - only on ADC1, 1 - can't use for audio
+	255,    // 25/A11 AD_B0_13 - only on ADC1, 2 - can't use for audio
+	3,      // 26/A12 AD_B1_14 - only on ADC2, do not use analogRead()
+	4,      // 27/A13 AD_B1_15 - only on ADC2, do not use analogRead()
+#ifdef ARDUINO_TEENSY41
+	255,    // 28
+	255,    // 29
+	255,    // 30
+	255,    // 31
+	255,    // 32
+	255,    // 33
+	255,    // 34
+	255,    // 35
+	255,    // 36
+	255,    // 37
+	1,      // 38/A14 AD_B1_12 - only on ADC2, do not use analogRead()
+	2,      // 39/A15 AD_B1_13 - only on ADC2, do not use analogRead()
+	9,      // 40/A16 AD_B1_04
+	10,     // 41/A17 AD_B1_05
+#endif
+};
+
+static_assert(  adc2_pin_to_channel[Pindefs::INPUT_ADC_PIN] == Pindefs::INPUT_ADC_CHANNEL,
+                "Mismatch between ADC pin and channel!");
+
+static_assert(  App_Constants::ENC_SW_BOUNCE_TIME >= App_Constants::ENC_BOUNCE_TIME,
+                "Encoder switch bounce time must be greater than or equal to rotation bounce time!");

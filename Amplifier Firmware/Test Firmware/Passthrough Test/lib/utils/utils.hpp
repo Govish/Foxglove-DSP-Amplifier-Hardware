@@ -1,3 +1,5 @@
+#pragma once
+
 /*
  * By Ishaan Govindarajan December 2023 (ported from another project in September 2023)
  * 
@@ -30,7 +32,7 @@
  *
  * 	>>> `Context Callback Function` is the most generic
  * 		- Lets you attach a global-scope c-style function or any kinda static function
- * 		- but also pass a generic pointer to some `context` to the function
+ * 		- but also [OPTIONALLY] pass a generic pointer to some `context` to the function
  * 			\--> Anticipated to use the `context` field to pass an instance of a class (or some kinda struct)
  * 		- anticipated use is with a forwarding function that takes a `void*` or `<Type>*` argument
  * 			\--> it will `static_cast()` the `context` back to the intended type, then call one of its instance methods
@@ -72,15 +74,17 @@ private:
 };
 
 
-template<typename T = void> //defaults to generic type
+template<typename T> //defaults to generic type
 class Context_Callback_Function {
 public:
 	static inline void empty_cb(T* context) {} //upon default initialization, just point to this empty function
-	Context_Callback_Function(T* _context, void(*_func)(T*)): context(_context), func(_func) {}
-	Context_Callback_Function(): context((T*)nullptr), func(empty_cb) {}
-	void __attribute__((optimize("O3"))) operator()() {(*func)(context);}
-	void __attribute__((optimize("O3"))) operator()() const {(*func)(context);}
+	Context_Callback_Function(void(*_no_context_func)(void)): context((T*)nullptr), func(empty_cb), no_context_func(_no_context_func) {} //let us pass in a function without context
+	Context_Callback_Function(T* _context, void(*_func)(T*)): context(_context), func(_func), no_context_func(nullptr) {} //we want a context type callback function
+	Context_Callback_Function(): context((T*)nullptr), func(empty_cb), no_context_func(nullptr) {} //default constructor, run the empty callback when called
+	void __attribute__((optimize("O3"))) operator()() {if(no_context_func == nullptr) (*func)(context); else no_context_func();}
+	void __attribute__((optimize("O3"))) operator()() const {if(no_context_func == nullptr) (*func)(context); else no_context_func();}
 private:
 	T* context;
 	void(*func)(T*);
+	void(*no_context_func)(void); //have this so we can call regular callback functions without any funny business
 };
