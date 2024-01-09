@@ -13,8 +13,8 @@
 #include <array> //to hold the count mode LUTs
 #include <Arduino.h> //for types, pin utilities
 
-#include "config.hpp" //for num encoders
-#include "utils.hpp" //for callback functions
+#include <config.h> //for num encoders
+#include <utils.h> //for callback functions
 
 class Rotary_Encoder {
 public:

@@ -1,6 +1,6 @@
-#include "audio_in_adc.hpp"
+#include <audio_in_adc.h>
 
-#include "imxrt.h" //for register-level control
+#include <imxrt.h> //for register-level control
 
 //========================= STATIC VARIABLE INITIALIZATION =========================
 
@@ -140,7 +140,7 @@ void Audio_In_ADC::start() {
     PIT_TCTRL0 = PIT_TCTRL_TEN;
 }
 
-void Audio_In_ADC::get_samples(std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE>& block_out) {
+void Audio_In_ADC::get_samples(Audio_Block_t& block_out) {
     //need to ensure the address of the memory buffer is flushed from cache
     //DMA will dump directly to RAM (RAM2), need to ensure processor accesses ram (and not cache)
     arm_dcache_delete(&dma_memory.dma_buffer, sizeof(dma_memory.dma_buffer));

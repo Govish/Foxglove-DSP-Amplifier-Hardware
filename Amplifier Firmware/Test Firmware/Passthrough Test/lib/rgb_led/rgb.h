@@ -5,9 +5,7 @@
  * Ishaan Gov Dec 2023
  */
 
-#include "Arduino.h"
-
-#include "config.hpp" 
+#include <Arduino.h> //for types, interface
 
 class RGB_LED {
 public:
@@ -16,6 +14,28 @@ public:
         uint8_t red_val;
         uint8_t green_val;
         uint8_t blue_val;
+
+        //a quick function that returns a color based off R, G, B values 
+        static COLOR mk_color(uint8_t r, uint8_t g, uint8_t b) {
+            return {r, g, b};
+        }
+
+        //and a quick function to blur between colors that's gamma corrected (gamma = 2)
+        // fade = 0 --> fully c1, fade = 1 --> fully c2
+        static COLOR blend(COLOR c1, COLOR c2, float fade) {
+            //constrain fade
+            if(fade < 0) fade = 0;
+            if(fade > 1) fade = 1;
+            
+            //blend the color using gamma correction (sqrt, mix, then square)
+            COLOR blend;
+            blend.red_val = (uint8_t)pow(sqrt((float)c2.red_val) * fade + sqrt((float)c1.red_val) * (1-fade), 2.0f);
+            blend.green_val = (uint8_t)pow(sqrt((float)c2.green_val) * fade + sqrt((float)c1.green_val) * (1-fade), 2.0f);
+            blend.blue_val = (uint8_t)pow(sqrt((float)c2.blue_val) * fade + sqrt((float)c1.blue_val) * (1-fade), 2.0f);
+            
+            //return the result
+            return blend;
+        }
     };
     
     //need `inline` for the following defs since C++ version doesn't automatically do this

@@ -1,4 +1,6 @@
-#include "rgb.hpp"
+#include <rgb.h>
+
+#include <config.h> //for audio sample rate --> PWM frequency
 
 //a chill little constructor that initializes some constants
 RGB_LED::RGB_LED(const uint8_t red_pin, const uint8_t green_pin, const uint8_t blue_pin, const bool _active_high):
@@ -11,6 +13,7 @@ RGB_LED::RGB_LED(const uint8_t red_pin, const uint8_t green_pin, const uint8_t b
 //just set pinmodes and resolution in the INIT
 void RGB_LED::init() {
     //set all PWM pins to outputs
+    //TODO: limit slew rates, drive strength, and output bandwidth on these outputs
     pinMode(r, OUTPUT);
     pinMode(g, OUTPUT);
     pinMode(b, OUTPUT);

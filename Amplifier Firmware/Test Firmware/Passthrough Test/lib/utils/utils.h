@@ -47,6 +47,7 @@
  * https://youtu.be/hbx0WCc5_-w?t=412
  */
 
+#include <array> //for span implementation
 #include <Arduino.h> //don't think this is necessary, but just outta good form
 
 class Callback_Function {
@@ -74,7 +75,7 @@ private:
 };
 
 
-template<typename T> //defaults to generic type
+template<typename T = void> //defaults to generic type
 class Context_Callback_Function {
 public:
 	static inline void empty_cb(T* context) {} //upon default initialization, just point to this empty function
@@ -87,4 +88,44 @@ private:
 	T* context;
 	void(*func)(T*);
 	void(*no_context_func)(void); //have this so we can call regular callback functions without any funny business
+};
+
+/*
+ * ====================== "DIY" SPAN IMPLEMENTATION ===================
+ * In previous projects I've found myself using std::span pretty often instead of c-style array constructs
+ * Unfortunately, std::span is only available on C++ compilers 2017 and later, and arduino defaults to C++ 2014
+ * 
+ * The fundamentals of std::span aren't super complicated--it's essentially holds a pointer to an array and its size in a single structure
+ * And some other entity actually owns the array. It shouldn't be too difficult to get a basic implementation going 
+ * 
+ * TODO:
+ * 	- Handle const span
+ */
+
+template<typename T>
+class App_Span {
+public:
+	//a couple types of constructors
+	App_Span(): span_ptr(nullptr), span_size(0) {} //default constructor
+	App_Span(T* _ptr, size_t _size): span_ptr(_ptr), span_size(_size) {}; //constructor with c-style interface
+
+	//special templatized constructor for std::span
+	template<size_t len>
+	App_Span(std::array<T, len>& arr): span_ptr(arr.data()), span_size(arr.size()) {} //constructor with std::span
+
+	//override some operators to provide an array-style interface
+	//no bounds checking for simplicity
+	T operator [](int i) const { return span_ptr[i]; }
+	T& operator [](int i) { return span_ptr[i]; }
+
+	//provide stl-style interfaces for iterators and such
+	//code generation assisted by ChatGPT lol
+	inline size_t size() { return span_size; }
+	inline T* begin() { return span_ptr; }
+	inline T* end() { return span_ptr + span_size; }
+
+private:
+	//just hold a pointer and a size
+	T* span_ptr;
+	size_t span_size; 
 };

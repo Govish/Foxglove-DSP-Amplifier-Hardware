@@ -10,10 +10,10 @@
  */
 
 #include <array> //container for a bunch of schedulers 
-#include <Arduino.h> //types
+#include <Arduino.h> //types, interface
 
-#include "config.hpp" //task pool size
-#include "utils.hpp" //callback functions
+#include <config.h> //task pool size
+#include <utils.h> //callback functions
 
 class Scheduler {
 public:
@@ -40,6 +40,9 @@ public:
 
     //call this in the main loop; basically the loop function for the scheduler
     static void update();
+
+    //get the status/operating mode of the task
+    inline Status get_status() { return status; }
 
 private:
     //function called during update

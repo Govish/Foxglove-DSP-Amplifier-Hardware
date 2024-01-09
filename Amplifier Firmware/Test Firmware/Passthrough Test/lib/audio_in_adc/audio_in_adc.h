@@ -1,9 +1,10 @@
 #pragma once
 
 #include <array> //for STL array interface
+#include <Arduino.h> //for types, interface
 #include <DMAChannel.h> //for DMA channel class
 
-#include "config.hpp" //configuration values
+#include <config.h> //configuration values
 
 /*
  * By Ishaan Gov December 2023
@@ -50,7 +51,7 @@ public:
     //intended to be called at a rate of SAMPLING_FREQUENCY / PROCESSING_BLOCK_SIZE
     //will copy values into passed into the function
     static void __attribute__((optimize("-O3"))) //hopefully compiler can use some DSP instructions and efficient copies for here
-    get_samples(std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE>& block_out);
+    get_samples(Audio_Block_t& block_out);
     
     //own a DMA channel that services the ADC_ETC peripheral
     static DMAChannel adc_dma;

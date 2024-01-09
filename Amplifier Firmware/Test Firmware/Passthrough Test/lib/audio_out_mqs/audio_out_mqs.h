@@ -15,11 +15,11 @@
 
 #include <array> //std::array for DMA buffer
 
-#include <Arduino.h>
+#include <Arduino.h> //for types, interface
 #include <DMAChannel.h> //we'll be doing all the streaming over DMA
 
-#include "utils.hpp" //for callback functions
-#include "config.hpp" //for constants 
+#include <utils.h> //for callback functions
+#include <config.h> //for constants 
 
 class Audio_Out_MQS {
 public:
@@ -54,13 +54,19 @@ public:
     //function will automatically route it to the right place in the DMA buffer
     //would like to use a std::span here but need C++17 for that, so using a std::array reference instead
     static void __attribute__((optimize("-O3"))) //hopefully compiler can use efficient copies for here
-    update(std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE>& block_in);
+    update(const Audio_Block_t& block_in);
 
     //have some kinda function to call every half-DMA-buffer cycle
     //basically this should reschedule the ADC reading
     //then run the effects chain at a slightly lower priority
     //allowing this to have a generic "context" to run with --> allows this function to be hooked up to a class
     static void attach_interrupt(Context_Callback_Function<void> _user_cb, uint8_t priority);
+
+    //functions to pause and resume the MQS interrupt
+    //under the hood, just disables the NVIC
+    //DOESN'T CLEAR ANY NVIC INTERRUPT FLAGS, SO A PENDING INTERRUPT CAN IMMEDIATELY FIRE ON RESUME
+    static void pause_interrupt();
+    static void resume_interrupt();
 
 
 private:

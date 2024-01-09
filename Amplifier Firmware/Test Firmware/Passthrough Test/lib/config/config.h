@@ -10,7 +10,11 @@
  * As such, defining a file with constants in its own namespace; will include these in other translation units as required
  */
 
+#include <array>
 #include <Arduino.h> //for types and stuff
+//#include <U8g2lib.h> //for u8g2 types and functions
+
+#include <rgb.h> //for LED colors
 
 namespace Pindefs {
     //RGB LED pin mapping
@@ -60,7 +64,7 @@ namespace Pindefs {
     constexpr uint8_t INPUT_ADC_PIN = A2;
     constexpr uint32_t INPUT_ADC_CHANNEL = 12;
 
-    //output is hardcoded on pin 12 --> has to be mapped to an MQS pin (other option is 10, change in `audio_output_mqs.cpp`)
+    //output is hardcoded on pin 12 --> has to be mapped to an MQS pin (other option is 10, change in `audio_output_mqs.cpp`)'
 }
 
 namespace App_Constants {
@@ -90,6 +94,70 @@ namespace App_Constants {
     //how many encoder instances we'll be running total
     //this is so we don't need a growable container (and therefore heap allocation) to store all encoder instances
     constexpr size_t NUM_ENCODERS = 5;
+
+    //similar kinda thing as above with regards to LEDs
+    constexpr size_t NUM_RGB_LEDs = NUM_ENCODERS;
+
+    //how many simultaneous audio effects we can be running
+    //similar motivation as above, also has implications for the UI
+    //in order to make the UI make sense, have one fewer effects than number of encoders
+    constexpr size_t NUM_EFFECTS = NUM_ENCODERS - 1;
+
+    //screen configuration --> what LCD we're using and how the rotation is set up
+    // typedef U8G2_SH1106_128X64_NONAME_F_HW_I2C U8G2_LCD_TYPE; //full buffer, we have plenty of RAM
+    // inline const u8g2_cb_t* SCREEN_ROTATION = U8G2_R0;
+    constexpr uint8_t DISPLAY_I2C_ADDRESS = 0x78; //8-bit address, 0x3C in 7-bit format
+
+    //bright and dim levels for the RGB LEDs
+    constexpr float UI_LED_LEVEL_BRIGHT = 1.0f;
+    constexpr float UI_LED_LEVEL_DIM = UI_LED_LEVEL_BRIGHT * 0.25;
+    constexpr uint32_t UI_LED_CHANGE_BRIGHT_TIME_MS = 100; //how long LEDs should stay at their bright level when the encoder changes
+
+    //splash screen colors
+    //we'll animate these colors when displaying the splash screen colors
+    constexpr std::array<RGB_LED::COLOR, 3> SPLASH_LED_COLORS = {
+        RGB_LED::PURPLE,
+        RGB_LED::ORANGE,
+        RGB_LED::WHITE
+    };
+
+    //splash screen timing
+    constexpr uint32_t SPLASH_SCREEN_LED_DELAY_MS = 50; //how long between animating LEDs
+    constexpr uint32_t SPLASH_SCREEN_DWELL_IMAGE_MS = 1500; //how long to wait with image after LEDs are lit
+    constexpr uint32_t SPLASH_SCREEN_DWELL_DARK_MS = 250; //how long to wait with dark screen after clearing image
+
+    //allowing us to render at most <this many> parameters on the screen at once
+    //should almost always be 5 since we have 5 knobs basically
+    constexpr size_t NUM_EDIT_PARAMS = NUM_ENCODERS;
+
+    //when rendering parameters on the edit screen, pad this many pixels between successive parameters
+    constexpr uint32_t PARAMETER_RENDER_PADDING = 2;
+
+    //effect icon dimensions --> how wide and tall home page icons for the effects shoudl be 
+    constexpr uint32_t EFFECT_ICON_WIDTH = 27;
+    constexpr uint32_t EFFECT_ICON_HEIGHT = 41;
+    constexpr uint32_t EFFECT_PADDING = 3; //pixels between each effect icon
+
+    //flag to say whether we're enabling quick editing
+    constexpr bool QUICK_EDIT_ENABLED = true;
+
+    //how long the quick edit screen should take to timeout 
+    constexpr uint32_t QUICK_EDIT_TIMEOUT_MS = 1000;
+
+    //how frequently to redraw the screen for pages that require continuous redrawing
+    constexpr uint32_t SCREEN_REDRAW_MS = 25; //40FPS
+
+    //for the settings screen, we'll increment our fade at the following rate
+    //update happens every `SCREEN_REDRAW_MS`; a value of 1/SCREEN_REDRAW_MS corresponds
+    //to a transition of 1 color per second
+    constexpr float SETTINGS_LED_FADE_INC = 0.75f/(float)SCREEN_REDRAW_MS;
+
+    //for automatically scrolling text
+    //before we start scrolling we'll dwell for a little bit --> this sets how long we dwell for
+    constexpr uint32_t SCROLLING_TEXT_DWELL_MS = 1000;
+
+    //when rendering scrolling text, how much space (px) shoud be between repetitions of the text
+    constexpr uint32_t SCROLLING_TEXT_PADDING = 24;
 };
 
 namespace Audio_Clocking_Constants {
@@ -116,6 +184,9 @@ namespace Audio_Clocking_Constants {
     //timer will be clocked from a 24MHz source
     constexpr uint32_t ADC_SAMPLING_DIVIDER = 24000000UL / App_Constants::AUDIO_SAMPLE_RATE_HZ;
 };
+
+//defining this type to make some of the audio functions a little cleaner
+typedef std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE> Audio_Block_t;
 
 //##############################################################################################################################################
 //============================= DO NOT MODIFY ANYTHING BELOW HERE! SANITY CHECK SETTINGS AND COMPUTE REGISTER CONSTANTS ========================

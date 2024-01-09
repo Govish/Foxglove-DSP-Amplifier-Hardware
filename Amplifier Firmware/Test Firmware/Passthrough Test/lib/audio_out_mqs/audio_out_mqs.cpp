@@ -1,4 +1,4 @@
-#include "audio_out_mqs.hpp"
+#include <audio_out_mqs.h>
 
 #include <Audio.h> //some weird dependency issue prevents me from directly including the file below--not sure?
 #include <utility/imxrt_hw.h> //setting audio clock--might drop this code directly into this file
@@ -60,7 +60,7 @@ void Audio_Out_MQS::start() {
 	I2S3_TCSR |= I2S_TCSR_TE | I2S_TCSR_BCE | I2S_TCSR_FRDE;
 }
 
-void Audio_Out_MQS::update(std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE>& block_in) {
+void Audio_Out_MQS::update(const Audio_Block_t& block_in) {
 	//just copy over the block into the correct half of the buffer
 	//using copy function from standard library to achieve this -- should get efficiently compliled
 	//type conversion from int16_t to int32_t should be implicit too and handled as efficiently as possible I think
@@ -85,6 +85,9 @@ void Audio_Out_MQS::attach_interrupt(Context_Callback_Function<void> _user_cb, u
 	NVIC_ENABLE_IRQ(IRQ_SOFTWARE);
 }
 
+//quick functions to pause and resume the interrupt with the NVIC
+void Audio_Out_MQS::pause_interrupt() { NVIC_DISABLE_IRQ(IRQ_SOFTWARE); }
+void Audio_Out_MQS::resume_interrupt() { NVIC_ENABLE_IRQ(IRQ_SOFTWARE); }
 
 //=============================================== PRIVATE UTILITY FUNCTIONS ===========================================
 
