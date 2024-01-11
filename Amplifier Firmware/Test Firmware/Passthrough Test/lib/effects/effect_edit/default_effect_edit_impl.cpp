@@ -1,5 +1,5 @@
 
-#include <effect_edit/default_effect__edit_impl.h>
+#include <effect_edit/default_effect_edit_impl.h>
 
 //splash screen takes the graphics handle and some LEDs to animate
 //also pass in the page to render after splash screen is complete
@@ -36,12 +36,63 @@ void Default_Effect_Edit_Impl::release_render_resources() {
  *          \--> stepping over the width of the parameter + 2px
  *          \--> adding 2px vertical spacing too
  */
-void Default_Effect_Edit_Impl::render(U8G2& _graphics_handle) {
+void Default_Effect_Edit_Impl::render(U8G2& graphics_handle) {
     //configure parameters and resources as necessary
     for(Param_Resource_Collection& prc : params_and_resources)
         configure_parameter(prc);   
 
-    /* TODO */
+    
+    //compute the total width of all the active effects
+    //start with a negative value here since we're gonna always be adding the `render_padding` for each effect
+    int32_t all_param_render_width = -App_Constants::PARAMETER_RENDER_PADDING;
+    for(Param_Resource_Collection& prc : params_and_resources) {
+        if(prc.param == nullptr) continue; //not gonna render nullptr params, so just continue
+        all_param_render_width += prc.param->get_edit_width() + App_Constants::PARAMETER_RENDER_PADDING;
+    }
+
+    //##### actual rendering happens now! #####
+    //start by clearing the display buffer
+    graphics_handle.clearBuffer();
+
+    //############## HEADER AND UNDERBAR ##############
+
+    //draw the header text at the top of the page; compute some constants for doing so
+    u8g2_uint_t text_height = graphics_handle.getAscent() - graphics_handle.getDescent();    
+    static const u8g2_uint_t HEADER_TEXT_X = (graphics_handle.getDisplayWidth() - graphics_handle.getStrWidth(display_text.c_str())) >> 1;
+    static const u8g2_uint_t HEADER_TEXT_Y = 0;
+
+    graphics_handle.setFontPosTop(); //use the top of the font as a handle for easy placement
+    graphics_handle.drawStr(HEADER_TEXT_X, HEADER_TEXT_Y, display_text.c_str());
+    graphics_handle.setFontPosBaseline(); //restore to default
+
+    //draw a horizontal bar underneath the header
+    u8g2_uint_t UNDERBAR_Y = text_height + 1;
+    graphics_handle.drawHLine(0, UNDERBAR_Y, graphics_handle.getDisplayWidth());
+
+    //################## RENDER PARAMS ##################
+    //render params such that they're horizontally and vertically centered in the space below the header
+    u8g2_uint_t param_x_pos = (graphics_handle.getDisplayWidth() - (u8g2_uint_t)all_param_render_width) >> 1;
+
+    for(Param_Resource_Collection& prc : params_and_resources) {
+        if(prc.param == nullptr) continue; //don't render nullptr params
+
+        //if the param exists, compute the y-position it should be rendered at
+        u8g2_uint_t param_y_pos = ((graphics_handle.getDisplayHeight() - (UNDERBAR_Y + 2) - // valid region height
+                                    prc.param->get_edit_height() + 1) >> 1 )                // height of param --> vertical offset from top
+                                    + (UNDERBAR_Y + 2);                                     // and offset this from the starting point of the valid region
+        
+        //render the parameter at the specified position
+        prc.param->draw(param_x_pos, param_y_pos, graphics_handle);
+
+        //move the x-position over by the parameter width and whatever padding 
+        param_x_pos += prc.param->get_edit_width() + App_Constants::PARAMETER_RENDER_PADDING;
+    }
+
+    //############# end RENDERING #############
+
+    //send the display buffer
+    graphics_handle.sendBuffer();
+
 }
 
 
@@ -98,7 +149,7 @@ void Default_Effect_Edit_Impl::configure_parameter(Param_Resource_Collection& pr
 
     //attach on press to save quick-edit parameter and go back to the home page
     //attaching pointer to particular prc instance as context --> this is OKAY since statically allocated
-    prc.enc->attach_on_press(   Context_Callback_Function<void>(prc, set_quick_edit_leave_cb));
+    prc.enc->attach_on_press(Context_Callback_Function<void>(prc, set_quick_edit_leave_cb));
 }
 
 void Default_Effect_Edit_Impl::release_parameter(Param_Resource_Collection& prc) {

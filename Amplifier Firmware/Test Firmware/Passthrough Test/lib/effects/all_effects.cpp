@@ -5,6 +5,7 @@
 
 //######## EFFECTS INCLUDES #########
 #include <effect_test_passthrough.h>
+#include <effect_test_params.h>
 
 //======================== STATIC VARIABLE DEFINITION =====================
 //################### USE THIS SPACE TO INSTANTIATE "MASTERs" OF ALL EFFECTS #################
@@ -16,6 +17,9 @@ Effect_Interface* const Effects_Manager::available_effects[] = {
         new Effect_Test_Passthrough(RGB_LED::PURPLE, "Passthrough Purple"),
         new Effect_Test_Passthrough(RGB_LED::ORANGE, "Passthrough Orange"),
         new Effect_Test_Passthrough(RGB_LED::GREEN, "Passthrough Green"),
+
+        //Initialize passthrough test with param
+        new Effect_Test_Param(RGB_LED::RED, "Passthrough Param"),
     };
 
 //################### end EFFECT MASTER DEFINITION #####################

@@ -1,9 +1,17 @@
+#pragma once
+
+/**
+ * Simple effect category that has no parameters and passes audio right through
+ * Configurable name and LED theme color
+ * I use this to test the basic functionality of the audio path and user interface
+ * 
+ * By Ishaan Gov Jan 2024
+*/
+
 
 #include <effect_interface.h> //implements interface specified here
 #include <scheduler.h> //to stage a transition 
 
-//a simple category of effect that has no parameters and just sends audio through
-//theme color is RED
 class Effect_Test_Passthrough : public Effect_Interface {
 public:
     //default constructor -- just call the base class constructor

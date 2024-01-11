@@ -50,9 +50,13 @@ public:
                                 std::array<RGB_LED*, App_Constants::NUM_RGB_LEDs>& _leds, 
                                 std::array<Rotary_Encoder*, App_Constants::NUM_ENCODERS>& _encs);
 
+    //delete the copy constructor --> always need to instantiate something fresh
+    //this is to ensure all the PRC's (see below) point to the correct instances upon copy 
+    Default_Effect_Edit_Impl(const Default_Effect_Edit_Impl& other) = delete;
+
     //call this function to render the edit screen
     //pass in a graphics handle that will actually do the rendering
-    void render(U8G2& _graphics_handle);
+    void render(U8G2& graphics_handle);
 
     //set up all LEDs and encoders for rendering
     //will be called automatically by `render` as necessary, so may not really need to use this
@@ -108,8 +112,7 @@ private:
         //another utility function to convert this into a void* to make `Callback`s easy
         inline operator void *() {
             return reinterpret_cast<void*>(this);
-        }
-    
+        }   
     };
     
     //these functions will be called to attach or detach resources to the parameter

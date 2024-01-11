@@ -52,7 +52,7 @@ typedef std::array<uint8_t, (App_Constants::EFFECT_ICON_WIDTH + 7)/8 * App_Const
 
 class Effect_Interface : public UI_Page {
 public:
-    Effect_Interface(): to_return_page(nullptr) {} //default constructor just configures the page transition
+    Effect_Interface(): to_return_page() {} //default constructor just initializes the page transition
 
     //need to declare the base desctructor as virtual
     //this ensures that calls to `delete Effect_Interface*` get redirected to derived destructors

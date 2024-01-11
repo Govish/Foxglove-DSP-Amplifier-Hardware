@@ -41,6 +41,10 @@ public:
     //useful for page transitions
     static inline UI_Page* get_active_page() { return active_page; }
 
+    //provide some functions to set the font to its default value and such
+    static inline void restore_font_default() { graphics_handle.setFont(DEFAULT_FONT); }
+    static inline void apply_font_small_params() { graphics_handle.setFont(SMALL_FONT); }
+
 //children can use the graphics handle too
 protected:
     //function called to render the particular UI page
@@ -70,6 +74,12 @@ private:
     //own a scheduler that calls `draw()` at the application configured frame rate
     //only the base class should be able to touch this
     static Scheduler draw_sched;
+
+    //define a default font to use for rendering menu headers and text and such
+    static const uint8_t* DEFAULT_FONT;
+
+    //define a small font to use for rendering parameters
+    static const uint8_t* SMALL_FONT;
 };
 
 /* 
@@ -98,7 +108,7 @@ public:
         //don't allow calling functions on pages that don't exist
         if(pg_to == nullptr) return;
         UI_Page::get_active_page()->on_exit(); 
-        pg_to->on_entry(); 
+        pg_to->on_entry();
     }
 
     //automatically create a callback function when a conversion to a callback is attempted

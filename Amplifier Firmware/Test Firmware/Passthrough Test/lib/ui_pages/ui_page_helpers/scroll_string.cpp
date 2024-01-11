@@ -75,6 +75,7 @@ void Scroll_String::render(U8G2& graphics_handle) {
 
     //check whether our text can fit in our bounding box
     u8g2_uint_t text_width = graphics_handle.getStrWidth(text_to_render.c_str());
+    u8g2_uint_t text_width_plus_pad = graphics_handle.getStrWidth((text_to_render + "    ").c_str());
     bool text_fits = ( text_width <= (right_x - left_x) );
     bool scrolling = !text_fits && enable_scrolling && do_scroll;
     
@@ -83,10 +84,10 @@ void Scroll_String::render(U8G2& graphics_handle) {
     //I'm imagining they're explointing rollover arithmetic which yeah a little weird but hey seems to work
     if(scrolling) {
         //we're scrolling; move over by a single pixel
-        text_x_offset -= 1;
+        text_x_offset -= scroll_px_per_update;
 
         //wrap around once our offset reaches the width of our text + padding
-        if(text_x_offset == (u8g2_uint_t) - (text_width + App_Constants::SCROLLING_TEXT_PADDING))
+        if(text_x_offset <= -(float)(text_width_plus_pad))
             text_x_offset = 0;
     }
 
@@ -98,14 +99,14 @@ void Scroll_String::render(U8G2& graphics_handle) {
     //compute our pixel coordinates of the text we wanna render
     //text can automatically center align, so just compute the vert center of our box
     u8g2_uint_t vert_center = (bottom_y + top_y) >> 1;
-    u8g2_uint_t horiz_left = left_x + text_x_offset;
+    u8g2_uint_t horiz_left = left_x + ((u8g2_uint_t) - (u8g2_uint_t)(-1 * text_x_offset)); //have to do some messy unsigned math here
     
     //draw two copies of the font at the computed positions
     //draw another copy of the text if we're scrolling --> gives effect of wrapping around
     graphics_handle.setFontPosCenter(); //vertically center our text
     graphics_handle.drawStr(horiz_left, vert_center, text_to_render.c_str());
     if(scrolling)
-        graphics_handle.drawStr(horiz_left + text_width + App_Constants::SCROLLING_TEXT_PADDING, 
+        graphics_handle.drawStr(horiz_left + text_width_plus_pad, 
                                 vert_center, text_to_render.c_str());    
 
     //bring font and screen clipping back to default

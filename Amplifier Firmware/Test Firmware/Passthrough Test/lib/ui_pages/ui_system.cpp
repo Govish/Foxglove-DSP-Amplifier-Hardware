@@ -30,6 +30,8 @@ void UI_System::make_ui() {
     static bool initialized = false;
     if(initialized) return;
 
+    //start by setting up the default font
+    UI_Page::restore_font_default();
 
     //make our main UI page, active effects will be maintained by `Effects_Manager`
     //save this main screen so we can return to it from callback functions

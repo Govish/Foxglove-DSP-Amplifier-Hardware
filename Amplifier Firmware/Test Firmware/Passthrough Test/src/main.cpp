@@ -39,7 +39,10 @@ std::array<Rotary_Encoder*, 5> encoders = {&enc_1, &enc_2, &enc_3, &enc_4, &enc_
 U8G2_SH1106_128X64_NONAME_F_HW_I2C ui_display(U8G2_R0);
 
 //initialize the static variables in the UI_Page parent class
+//includes default fonts, LEDs and Encoders
 U8G2& UI_Page::graphics_handle = ui_display;
+const uint8_t* UI_Page::DEFAULT_FONT = u8g2_font_spleen6x12_me;
+const uint8_t* UI_Page::SMALL_FONT = u8g2_font_04b_03_tr;
 std::array<RGB_LED*, App_Constants::NUM_RGB_LEDs>& UI_Page::leds = RGB_LEDs;
 std::array<Rotary_Encoder*, App_Constants::NUM_ENCODERS>& UI_Page::encs = encoders;
 
@@ -65,17 +68,12 @@ void audio_system_update() {
 }
 
 void setup() {
-	//debugging
-	// Serial.begin(115200);
-	// delay(5000);
-
 	//initialize our audio effects
 	Effects_Manager::init();
 
 	//initialize our display and UI system
 	ui_display.setI2CAddress(App_Constants::DISPLAY_I2C_ADDRESS);
 	ui_display.begin();
-	ui_display.setFont(u8g2_font_spleen6x12_me);
 	UI_System::make_ui();
 
 	//initialize our RGB LEDs

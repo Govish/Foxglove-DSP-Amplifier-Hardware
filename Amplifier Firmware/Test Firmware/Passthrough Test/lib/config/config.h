@@ -155,9 +155,6 @@ namespace App_Constants {
     //for automatically scrolling text
     //before we start scrolling we'll dwell for a little bit --> this sets how long we dwell for
     constexpr uint32_t SCROLLING_TEXT_DWELL_MS = 1000;
-
-    //when rendering scrolling text, how much space (px) shoud be between repetitions of the text
-    constexpr uint32_t SCROLLING_TEXT_PADDING = 24;
 };
 
 namespace Audio_Clocking_Constants {

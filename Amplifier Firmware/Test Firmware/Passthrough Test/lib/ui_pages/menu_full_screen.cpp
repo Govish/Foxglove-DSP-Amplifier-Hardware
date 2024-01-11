@@ -20,20 +20,19 @@ void Menu_Full_Screen::menu_draw() {
     //start by clearing the display buffer
     graphics_handle.clearBuffer();
 
-    //############## HEADER AND OVERBAR ##############
+    //############## HEADER AND UNDERBAR ##############
 
     //draw the header text at the top of the page; compute some constants for doing so
     u8g2_uint_t text_height = graphics_handle.getAscent() - graphics_handle.getDescent();    
-    static const u8g2_uint_t HEADER_TEXT_PADDING = 1; //some space above and below the header
-    static const u8g2_uint_t HEADER_TEXT_X = HEADER_TEXT_PADDING;
-    u8g2_uint_t HEADER_TEXT_Y = (text_height + 1) >> 1;
+    static const u8g2_uint_t HEADER_TEXT_X = 0;
+    static const u8g2_uint_t HEADER_TEXT_Y = 0;
 
-    graphics_handle.setFontPosCenter(); //use the centerline of the text to place it
+    graphics_handle.setFontPosTop(); //use the centerline of the text to place it
     graphics_handle.drawStr(HEADER_TEXT_X, HEADER_TEXT_Y, header_text.c_str());
     graphics_handle.setFontPosBaseline(); //restore to default
 
     //draw a horizontal bar underneath the header
-    u8g2_uint_t UNDERBAR_Y = text_height + HEADER_TEXT_PADDING + 1;
+    u8g2_uint_t UNDERBAR_Y = text_height + 1;
     graphics_handle.drawHLine(0, UNDERBAR_Y, graphics_handle.getDisplayWidth());
 
     //############## MENU ITEMS ##############

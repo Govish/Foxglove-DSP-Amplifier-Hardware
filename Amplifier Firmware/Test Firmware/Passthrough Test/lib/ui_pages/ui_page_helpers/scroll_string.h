@@ -37,6 +37,9 @@ public:
     //set the string to render
     void set_render_text(std::string _text_to_render);
 
+    //set how many pixels to scroll per screen update
+    inline void set_scroll_px_per_update(float px) { if(px > 0) scroll_px_per_update = px; }
+
     //set the bounding box in which to render the text
     //text will be horizontally aligned `left` in the bounding box
     //      and vertically aligned `center`
@@ -75,7 +78,8 @@ private:
     //flag that determines whether we scroll text or not
     //along with a horizontal offset amount useful to determine the pixel coordinate of our scrolled text
     //reset by `reset()`, set by scheduler callback
-    u8g2_uint_t text_x_offset = 0;
+    float text_x_offset = 0;
+    float scroll_px_per_update = 1;
     bool do_scroll = false;
     bool enable_scrolling = true;
 

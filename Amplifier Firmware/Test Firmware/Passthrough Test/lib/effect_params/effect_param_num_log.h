@@ -50,4 +50,5 @@ private:
     uint32_t last_encoder_count = 0;    //don't recalculate if encoder value didn't change
                                         //also useful to initialize encoder value 
     float param_value;
+    float log_param_value;              //save this so we don't have to recompute every screen render
 };

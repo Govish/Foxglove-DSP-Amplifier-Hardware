@@ -17,6 +17,7 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
 
+#include <ui_page.h> //for some render-related function
 #include <encoder.h>
 
 //all methods will basically be implementation defined
@@ -24,6 +25,9 @@ class Effect_Parameter {
 public:
     //default constructor just stores the label of the parameter
     Effect_Parameter(const std::string _label): label(_label) {}
+
+    //forward destructor to derived classes
+    virtual ~Effect_Parameter() {}
 
     //hook up an encoder to tweak said parameter
     //should be able to use this function for both `edit` and `quick_edit`
@@ -61,7 +65,7 @@ protected:
 
     //dimensions of the parameter in px when rendered on the screen in normal edit context
     const uint32_t PARAM_EDIT_RENDER_WIDTH = 24;
-    const uint32_t PARAM_EDIT_RENDER_HEIGHT = 54;
+    const uint32_t PARAM_EDIT_RENDER_HEIGHT = 49;
 
     //dimensions of the parameter in px when rendered on the screen in quick edit context 
     const uint32_t PARAM_QE_RENDER_WIDTH = 128;

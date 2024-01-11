@@ -12,6 +12,7 @@
 #include <string>
 
 #include <effect_param.h>
+#include <ui_page_helpers/scroll_string.h> //helpful in rendering the selected item
 #include <encoder.h>
 #include <utils.h>
 
@@ -41,6 +42,11 @@ public:
     uint32_t get();
 
 private:
+    //have a scroll string that scrolls the active item
+    //and a `last_choice_index` to restart the scrolling text
+    Scroll_String active_choice; 
+    uint32_t last_choice_index = -1; //bogus max value
+
     //point to an array of strings that name each of the choices
     App_Span<std::string> choices;
 
