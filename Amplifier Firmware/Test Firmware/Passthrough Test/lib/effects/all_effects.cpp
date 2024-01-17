@@ -6,6 +6,7 @@
 //######## EFFECTS INCLUDES #########
 #include <effect_test_passthrough.h>
 #include <effect_test_params.h>
+#include <effect_iir_lp.h>
 
 //======================== STATIC VARIABLE DEFINITION =====================
 //################### USE THIS SPACE TO INSTANTIATE "MASTERs" OF ALL EFFECTS #################
@@ -13,13 +14,13 @@
 Effect_Interface* const Effects_Manager::available_effects[] = {
         //initialize some passthrough tests
         new Effect_Test_Passthrough(RGB_LED::WHITE, "Default Passthrough"),
-        new Effect_Test_Passthrough(RGB_LED::CYAN, "Passthrough Cyan"),
-        new Effect_Test_Passthrough(RGB_LED::PURPLE, "Passthrough Purple"),
-        new Effect_Test_Passthrough(RGB_LED::ORANGE, "Passthrough Orange"),
-        new Effect_Test_Passthrough(RGB_LED::GREEN, "Passthrough Green"),
 
         //Initialize passthrough test with param
         new Effect_Test_Param(RGB_LED::RED, "Passthrough Param"),
+
+        //Initialize a prototype lowpass FIR and IIR filter
+        /* TODO FIR filter */
+        new Effect_IIR_LP(),
     };
 
 //################### end EFFECT MASTER DEFINITION #####################
@@ -59,7 +60,12 @@ void Effects_Manager::replace(size_t effect_index, size_t effect_no_in_list) {
     //and connect the effect to the system
     active_effects[effect_index]->connect();
 
-    //resume the audio system update
+    //ensure all memory addresses of the effects are synchronized
+    //ensures no invalid memory accesses once audio update interrupt is resumed
+    //might not be necessary --> put this here during some bug-chasing
+    // asm volatile("dsb");
+
+    //resume the audio interrupt
     Audio_Out_MQS::resume_interrupt();
 }
 

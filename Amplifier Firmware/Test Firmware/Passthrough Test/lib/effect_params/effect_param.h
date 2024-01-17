@@ -58,7 +58,8 @@ public:
 
 protected:
     //point to an encoder that will be used to modify our parameter
-    Rotary_Encoder* enc;
+    //MAKE SURE TO EXPLICITLY INITIALIZE AS NULLPTR --> was chasing a bug for a while, thought it would default initialize to this
+    Rotary_Encoder* enc = nullptr;
 
     //and store the label of the parameter
     const std::string label;

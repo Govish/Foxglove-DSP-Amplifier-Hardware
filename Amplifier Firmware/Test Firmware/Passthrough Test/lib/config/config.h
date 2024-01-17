@@ -19,20 +19,20 @@
 namespace Pindefs {
     //RGB LED pin mapping
     constexpr uint8_t LED_CHAN1_R = 0;
-    constexpr uint8_t LED_CHAN1_B = 2;
-    constexpr uint8_t LED_CHAN1_G = 1;
+    constexpr uint8_t LED_CHAN1_G = 2;
+    constexpr uint8_t LED_CHAN1_B = 1;
     constexpr uint8_t LED_CHAN2_R = 3;
-    constexpr uint8_t LED_CHAN2_B = 5;
-    constexpr uint8_t LED_CHAN2_G = 4;
+    constexpr uint8_t LED_CHAN2_G = 5;
+    constexpr uint8_t LED_CHAN2_B = 4;
     constexpr uint8_t LED_CHAN3_R = 6;
-    constexpr uint8_t LED_CHAN3_B = 8;
-    constexpr uint8_t LED_CHAN3_G = 7;
+    constexpr uint8_t LED_CHAN3_G = 8;
+    constexpr uint8_t LED_CHAN3_B = 7;
     constexpr uint8_t LED_CHAN4_R = 9;
-    constexpr uint8_t LED_CHAN4_B = 24;
-    constexpr uint8_t LED_CHAN4_G = 11;
+    constexpr uint8_t LED_CHAN4_G = 24;
+    constexpr uint8_t LED_CHAN4_B = 11;
     constexpr uint8_t LED_MAIN_R = 25;
-    constexpr uint8_t LED_MAIN_B = 29;
-    constexpr uint8_t LED_MAIN_G = 28;
+    constexpr uint8_t LED_MAIN_G = 29;
+    constexpr uint8_t LED_MAIN_B = 28;
     constexpr bool RGB_ACTIVE_HIGH = false; //RGB LEDs are active LOW
 
     //Encoder pin mapping
@@ -79,6 +79,15 @@ namespace App_Constants {
     constexpr uint32_t AUDIO_SAMPLE_RATE_HZ = 48000;
     constexpr uint32_t MQS_PWM_FREQ_HZ = AUDIO_SAMPLE_RATE_HZ * 8; //approximately the factory configuration 
     constexpr uint32_t MQS_OVERSAMPLE_RATE = 64; //should give a little better performance?
+
+    //for level visualizer, number of LEDs used for visualization
+    //along with an array of threshold levels for each LED (1 is max allowable signal level, 0 is min allowable signal level)
+    //a hysteresis value that "de-noises" the level indicator 
+    //and finally the time constant of our decay rate for exponential decay
+    constexpr size_t LEVEL_VIS_NUM_LEDS = 4;
+    constexpr std::array<float, LEVEL_VIS_NUM_LEDS> THRESHOLD_LEVELS = {0.9, 0.45, 0.225, 0.1125};
+    constexpr float THRESHOLD_HYSTERESIS = 0.025;
+    constexpr float LEVEL_VIS_DECAY_TIME_CONSTANT_SEC = 0.2f;
 
     //interrupt priorities
     constexpr uint8_t MQS_DMA_INT_PRIO = 10;
@@ -183,7 +192,10 @@ namespace Audio_Clocking_Constants {
 };
 
 //defining this type to make some of the audio functions a little cleaner
-typedef std::array<int16_t, App_Constants::PROCESSING_BLOCK_SIZE> Audio_Block_t;
+static constexpr float AUDIO_SAMPLE_MIN_VAL = -32768.0f;
+static constexpr float AUDIO_SAMPLE_MAX_VAL = 32767.0f;
+typedef int16_t Audio_Sample_t;
+typedef std::array<Audio_Sample_t, App_Constants::PROCESSING_BLOCK_SIZE> Audio_Block_t;
 
 //##############################################################################################################################################
 //============================= DO NOT MODIFY ANYTHING BELOW HERE! SANITY CHECK SETTINGS AND COMPUTE REGISTER CONSTANTS ========================

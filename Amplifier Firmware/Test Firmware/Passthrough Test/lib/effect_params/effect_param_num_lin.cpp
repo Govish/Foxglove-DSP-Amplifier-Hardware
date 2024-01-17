@@ -28,6 +28,7 @@ void Effect_Parameter_Num_Lin::attach_configure_enc(Rotary_Encoder& enc) {
 
 //read the encoder position, recompute parameter value if the encoder position is different 
 void Effect_Parameter_Num_Lin::synchronize() {
+
     //if we have an attached encoder, read it
     if(enc != nullptr) {
         //get the encoder counts

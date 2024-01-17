@@ -12,6 +12,7 @@
 
 //hardware includes
 #include <audio_out_mqs.h>
+#include <audio_level.h>
 #include <audio_in_adc.h>
 #include <rgb.h>
 #include <encoder.h>
@@ -31,6 +32,15 @@ Rotary_Encoder enc_3(Pindefs::ENC_CHAN3_A, Pindefs::ENC_CHAN3_B, Pindefs::ENC_CH
 Rotary_Encoder enc_4(Pindefs::ENC_CHAN4_A, Pindefs::ENC_CHAN4_B, Pindefs::ENC_CHAN4_SW, Rotary_Encoder::X1_FWD);
 Rotary_Encoder enc_main(Pindefs::ENC_MAIN_A, Pindefs::ENC_MAIN_B, Pindefs::ENC_MAIN_SW, Rotary_Encoder::X1_FWD);
 std::array<Rotary_Encoder*, 5> encoders = {&enc_1, &enc_2, &enc_3, &enc_4, &enc_main}; //aggregate all of them
+
+//initialize the pins we'll be using for our audio level visualizer
+//ordered in the same way that App_Constants::THRESHOLD_LEVELS is ordered
+const std::array<uint8_t, App_Constants::LEVEL_VIS_NUM_LEDS> Audio_Level_Vis::led_pins = {
+	Pindefs::LEVEL_CLIP, 
+	Pindefs::LEVEL_HIGH, 
+	Pindefs::LEVEL_MED, 
+	Pindefs::LEVEL_LOW
+};
 
 //create the interface to the OLED using the U8G2 library
 //get the specific display type and rotation from the config 
@@ -54,20 +64,37 @@ void audio_system_update() {
 	//read the data in from the ADC
 	Audio_In_ADC::get_samples(effect_buffers[0]);
 
+	//update our level indicator
+	Audio_Level_Vis::update(effect_buffers[0]);
+
 	//run the audio samples through the effect chain
 	//input from the array at the current index
 	//output to the array at the next index
-	for(size_t i = 0; i < App_Constants::NUM_EFFECTS; i++)
+	for(size_t i = 0; i < App_Constants::NUM_EFFECTS; i++) 
 		Effects_Manager::get_active_effect(i)->audio_update(
 			effect_buffers[i],	//read from current index
 			effect_buffers[i+1]	//write to next index
 		);
+	
 
 	//write the data out with the processed audio data from the last effect
 	Audio_Out_MQS::update(effect_buffers[App_Constants::NUM_EFFECTS]);
 }
 
 void setup() {
+
+	//for debugging
+	Serial.begin(115200);
+	while(!Serial && millis() < 5000);
+	
+	//print crash report
+	if(CrashReport && Serial) {
+		Serial.println(CrashReport);
+	}
+	//reset CrashReport Breadcrumbs
+	for(size_t i = 1; i <= 6; i++)
+		CrashReport.breadcrumb(i, 0);
+	
 	//initialize our audio effects
 	Effects_Manager::init();
 
@@ -85,6 +112,9 @@ void setup() {
 	//initialize the input/output hardware
 	Audio_Out_MQS::init();
 	Audio_In_ADC::init();
+
+	//initialize our audio input level visualizer
+	Audio_Level_Vis::init();
 
 	//attach the update hook to the output function --> this corresponds to the main audio system update!
 	//should run at the highest priority to provide the most real time operation
