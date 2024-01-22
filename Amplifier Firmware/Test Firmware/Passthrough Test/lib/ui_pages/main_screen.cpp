@@ -26,7 +26,10 @@ Main_Screen::Main_Screen(   std::array<std::unique_ptr<Effect_Interface>, App_Co
 }
 
 //alternate constructor
-Main_Screen::Main_Screen(std::array<std::unique_ptr<Effect_Interface>, App_Constants::NUM_EFFECTS>& _active_effects) {
+Main_Screen::Main_Screen(std::array<std::unique_ptr<Effect_Interface>, App_Constants::NUM_EFFECTS>& _active_effects):
+    idle_screen(this),              //own an idle screen that points back to this
+    to_idle_screen(&idle_screen)    //and configure the transition to this page
+{
     //no subarray of std::array so have to do this gross thing:
     //create local vars of pointers that are the right length and copy stuff into them
     std::array<RGB_LED*, App_Constants::NUM_EFFECTS> fx_leds;
@@ -106,6 +109,9 @@ void Main_Screen::impl_on_entry() {
     //and trigger our scrolling text in advance of entering our menu
     last_selected_item = main_selected_item;
     render_texts[main_selected_item].start();
+
+    //and start our timeout to go to the idle screen
+    idle_screen_timeout.schedule_oneshot_ms(to_idle_screen, App_Constants::IDLE_SCREEN_TIMEOUT_MS);
 }
 
 void Main_Screen::impl_on_exit() {
@@ -123,6 +129,9 @@ void Main_Screen::impl_on_exit() {
         enc->attach_on_change({});
         enc->attach_on_press({});
     }
+
+    //and stop our idle screen timeout
+    idle_screen_timeout.deschedule();
 }
 
 //called every `SCREEN_REDRAW_MS`
@@ -293,4 +302,7 @@ void Main_Screen::main_change_cb(void* context) {
 
     //and set the transition to the appropriate page (based on the selected item)
     s->main_select_transition.set_to(s->main_select_pages[s->main_selected_item]);
+
+    //and refresh our idle screen timeout
+    s->idle_screen_timeout.schedule_oneshot_ms(s->to_idle_screen, App_Constants::IDLE_SCREEN_TIMEOUT_MS);
 }

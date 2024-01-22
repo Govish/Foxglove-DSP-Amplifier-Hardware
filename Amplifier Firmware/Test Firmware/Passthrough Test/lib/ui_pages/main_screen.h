@@ -4,6 +4,7 @@
 #include <Arduino.h>
 
 #include <ui_page.h> //inherit from here
+#include <idle_screen.h> //for noise reduction when no user inputs are active
 #include <quick_edit_screen.h> //own a couple of these to implement quick editing of parameters
 #include <effect_interface.h> //leverage the effect interface to modify effects
 #include <effect_param.h> //leverage parameter interface to hold quick edit params
@@ -134,6 +135,11 @@ private:
     //each effect channel has all the resources it needs in one single struct
     //can basically initialize this element-wise 
     std::array<Effect_Resource_Collection, App_Constants::NUM_EFFECTS> ercs;
+
+    //transition to an idle screen for effect noise reduction
+    Idle_Screen idle_screen;
+    Pg_Transition to_idle_screen;
+    Scheduler idle_screen_timeout;
 
     //for the main encoder, hold an index value of its position
     //this will control which item is selected (effect channels, settings, or nothing)

@@ -164,6 +164,11 @@ namespace App_Constants {
     //for automatically scrolling text
     //before we start scrolling we'll dwell for a little bit --> this sets how long we dwell for
     constexpr uint32_t SCROLLING_TEXT_DWELL_MS = 1000;
+
+    //timeout duration (ms) until we go into the idle screen from the main screen
+    //idle screen reduces noise by reducing processor I/O activity
+    //by turning off all LEDs and halting screen rendering updates
+    constexpr uint32_t IDLE_SCREEN_TIMEOUT_MS = 10000;
 };
 
 namespace Audio_Clocking_Constants {

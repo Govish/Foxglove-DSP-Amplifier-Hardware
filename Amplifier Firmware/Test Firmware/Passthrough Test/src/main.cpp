@@ -26,11 +26,11 @@ RGB_LED led_main(Pindefs::LED_MAIN_R, Pindefs::LED_MAIN_G, Pindefs::LED_MAIN_B, 
 std::array<RGB_LED*, 5> RGB_LEDs = {&led_1, &led_2, &led_3, &led_4, &led_main}; //aggregate all of them
 
 //instantiate our encoders
-Rotary_Encoder enc_1(Pindefs::ENC_CHAN1_A, Pindefs::ENC_CHAN1_B, Pindefs::ENC_CHAN1_SW, Rotary_Encoder::X1_FWD);
-Rotary_Encoder enc_2(Pindefs::ENC_CHAN2_A, Pindefs::ENC_CHAN2_B, Pindefs::ENC_CHAN2_SW, Rotary_Encoder::X1_FWD);
-Rotary_Encoder enc_3(Pindefs::ENC_CHAN3_A, Pindefs::ENC_CHAN3_B, Pindefs::ENC_CHAN3_SW, Rotary_Encoder::X1_FWD);
-Rotary_Encoder enc_4(Pindefs::ENC_CHAN4_A, Pindefs::ENC_CHAN4_B, Pindefs::ENC_CHAN4_SW, Rotary_Encoder::X1_FWD);
-Rotary_Encoder enc_main(Pindefs::ENC_MAIN_A, Pindefs::ENC_MAIN_B, Pindefs::ENC_MAIN_SW, Rotary_Encoder::X1_FWD);
+Rotary_Encoder enc_1(Pindefs::ENC_CHAN1_A, Pindefs::ENC_CHAN1_B, Pindefs::ENC_CHAN1_SW, Rotary_Encoder::X1_REV);
+Rotary_Encoder enc_2(Pindefs::ENC_CHAN2_A, Pindefs::ENC_CHAN2_B, Pindefs::ENC_CHAN2_SW, Rotary_Encoder::X1_REV);
+Rotary_Encoder enc_3(Pindefs::ENC_CHAN3_A, Pindefs::ENC_CHAN3_B, Pindefs::ENC_CHAN3_SW, Rotary_Encoder::X1_REV);
+Rotary_Encoder enc_4(Pindefs::ENC_CHAN4_A, Pindefs::ENC_CHAN4_B, Pindefs::ENC_CHAN4_SW, Rotary_Encoder::X1_REV);
+Rotary_Encoder enc_main(Pindefs::ENC_MAIN_A, Pindefs::ENC_MAIN_B, Pindefs::ENC_MAIN_SW, Rotary_Encoder::X1_REV);
 std::array<Rotary_Encoder*, 5> encoders = {&enc_1, &enc_2, &enc_3, &enc_4, &enc_main}; //aggregate all of them
 
 //initialize the pins we'll be using for our audio level visualizer
