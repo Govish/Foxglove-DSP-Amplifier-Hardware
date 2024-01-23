@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="82mm"
+   height="12.25mm"
+   viewBox="0 0 82 12.25"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="Mainboard Label.png"
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="Mainboard Label.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.11403896734"
+     inkscape:cx="181.406306092"
+     inkscape:cy="29.5642610971"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1" />
+  <g
+     id="g3"
+     transform="translate(-0.87060008654,-0.688354608005)">
+    <g
+       inkscape:label="Layer 1"
+       inkscape:groupmode="layer"
+       id="layer1"
+       inkscape:export-filename="Mainboard Label.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       transform="translate(-6.7583900868,-2.12764132362)">
+      <rect
+         style="fill:#000000;stroke:#000000;stroke-width:0"
+         id="rect2"
+         width="82"
+         height="12.25"
+         x="7.62899017334"
+         y="2.81599593163"
+         rx="2"
+         ry="2" />
+      <text
+         xml:space="preserve"
+         style="font-size:6.35px;font-family:'Rounds Black';-inkscape-font-specification:'Rounds Black, ';letter-spacing:0.0529167px;fill:#ffffff;stroke:#000000;stroke-width:0"
+         x="9.31962680817"
+         y="8.82199954987"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="font-size:6.35px;fill:#ffffff;stroke-width:0"
+           x="9.31962680817"
+           y="8.82199954987">fOXGLOVE MAINBOARD</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;font-family:'Rounds Black';-inkscape-font-specification:'Rounds Black, ';letter-spacing:0.0529167px;fill:#ffffff;stroke:#000000;stroke-width:0"
+         x="9.62483310699"
+         y="13.2979974747"
+         id="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           style="font-size:4.23333px;fill:#ffffff;stroke-width:0"
+           x="9.62483310699"
+           y="13.2979974747">iSHAAN GOV DEC 2023</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:4.23333px;font-family:'Rounds Black';-inkscape-font-specification:'Rounds Black, ';letter-spacing:0.0529167px;fill:#ffffff;stroke:#000000;stroke-width:0"
+         x="73.4522247314"
+         y="13.2556638718"
+         id="text3"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           style="stroke-width:0"
+           x="73.4522247314"
+           y="13.2556638718">rev. b</tspan></text>
+    </g>
+  </g>
+</svg>

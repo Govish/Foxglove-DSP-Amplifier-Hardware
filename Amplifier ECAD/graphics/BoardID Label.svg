@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="36.9999961853mm"
+   height="8.0999994278mm"
+   viewBox="0 0 36.9999961853 8.0999994278"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-13.0977347527,-9.20381424646)">
+    <rect
+       style="fill:#000000;stroke:#000000;stroke-width:0"
+       id="rect1"
+       width="37"
+       height="8.10000038147"
+       x="13.0977344513"
+       y="9.20381355286"
+       ry="1"
+       rx="1"
+       inkscape:export-filename="rect1.svg"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.66889px;font-family:'Rounds Black';-inkscape-font-specification:'Rounds Black, ';letter-spacing:0.0333611px;fill:#000000;stroke:#000000;stroke-width:0"
+       x="13.7749137878"
+       y="11.8897609711"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="fill:#ffffff;stroke-width:0"
+         x="13.7749137878"
+         y="11.8897609711">board id:</tspan></text>
+  </g>
+</svg>
